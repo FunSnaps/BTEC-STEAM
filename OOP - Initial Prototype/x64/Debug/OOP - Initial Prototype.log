@@ -1,3 +1,51 @@
+<<<<<<< Updated upstream
 ﻿  StoreMenu.cpp
   LINK : E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\x64\Debug\OOP - Initial Prototype.exe not found or not built by the last incremental link; performing full link
   OOP - Initial Prototype.vcxproj -> E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\x64\Debug\OOP - Initial Prototype.exe
+=======
+﻿  Account.cpp
+  Admin.cpp
+  Application.cpp
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(12,26): error C2676: binary '[': 'List<Account *>' does not define this operator or a conversion to a type acceptable to the predefined operator
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(44,32): error C2676: binary '[': 'List<Account *>' does not define this operator or a conversion to a type acceptable to the predefined operator
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(62,19): error C2039: 'Load': is not a member of 'Application'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.h(9): message : see declaration of 'Application'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(63,1): error C2270: 'Load': modifiers not allowed on nonmember functions
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(66,19): error C2079: 'file' uses undefined class 'std::basic_ifstream<char,std::char_traits<char>>'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(66,35): error C2440: 'initializing': cannot convert from 'const char [9]' to 'int'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(66,23): message : There is no context in which this conversion is possible
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(69,12): error C2672: 'getline': no matching overloaded function found
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(69,32): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_istream<_Elem,_Traits> &' from 'int'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\string(82): message : see declaration of 'std::getline'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(69,32): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\string(76): message : see declaration of 'std::getline'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(69,32): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_istream<_Elem,_Traits> &&' from 'int'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\string(70): message : see declaration of 'std::getline'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(69,32): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\string(27): message : see declaration of 'std::getline'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(72,24): error C2039: 'games2': is not a member of 'Store'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Store.h(5): message : see declaration of 'Store'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(75,30): error C2039: 'games2': is not a member of 'Store'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Store.h(5): message : see declaration of 'Store'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(75,61): error C2039: 'games2': is not a member of 'Store'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Store.h(5): message : see declaration of 'Store'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(75,10): error C2672: 'std::copy': no matching overloaded function found
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(75,126): error C2780: '_OutIt std::copy(_InIt,_InIt,_OutIt)': expects 3 arguments - 2 provided
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\xutility(4424): message : see declaration of 'std::copy'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(78,19): error C2039: 'Save': is not a member of 'Application'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.h(9): message : see declaration of 'Application'
+  Game.cpp
+  LibraryItem.cpp
+  LoginUserMenu.cpp
+  MainMenu.cpp
+  Menu.cpp
+  Player.cpp
+  ProfileMenu.cpp
+  Source.cpp
+  Store.cpp
+  StoreMenu.cpp
+  User.cpp
+  Utils.cpp
+  Generating Code...
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\LoginUserMenu.cpp(75): warning C4715: 'LoginUserMenu::HandleChoice': not all control paths return a value
+>>>>>>> Stashed changes
