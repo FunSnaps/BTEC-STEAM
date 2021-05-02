@@ -14,5 +14,5 @@
   User.cpp
   Utils.cpp
   Generating Code...
-E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\Object-Oriented-Programming\OOP - Initial Prototype\LoginUserMenu.cpp(38): warning C4715: 'LoginUserMenu::HandleChoice': not all control paths return a value
-  OOP - Initial Prototype.vcxproj -> E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\Object-Oriented-Programming\x64\Debug\OOP - Initial Prototype.exe
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\LoginUserMenu.cpp(38): warning C4715: 'LoginUserMenu::HandleChoice': not all control paths return a value
+  OOP - Initial Prototype.vcxproj -> E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\x64\Debug\OOP - Initial Prototype.exe
