@@ -4,6 +4,10 @@
 #include "User.h"
 #include "Store.h"
 
+#include <fstream>
+#include <string>
+#include <algorithm>
+
 
 class Application
 {
@@ -21,6 +25,9 @@ class Application
 		bool LoginAccount(const std::string& email, const std::string& password);
 		bool LoginUser(const std::string& username, const std::string& password);
 		void LogoutUser();
+
+		void Load()const;
+		void Save();
 		
 		Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection
 	private:

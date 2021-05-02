@@ -174,6 +174,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ProfileMenu.h" />
+    <ClInclude Include="Source.h" />
     <ClInclude Include="Store.h" />
     <ClInclude Include="StoreMenu.h" />
     <ClInclude Include="User.h" />

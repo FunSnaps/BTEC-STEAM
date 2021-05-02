@@ -8,6 +8,7 @@
 #include "Utils.h"
 
 #include "MainMenu.h"
+#include "Source.h"
 
 // TODO: Remove from global scope once menu system is integrated
 Application app;
@@ -260,8 +261,8 @@ void main()
 	// TODO: Remove call to dummy data, instead use Load and Save
 	createHardcodedTestData();
 
-	// TODO: app.Load();
-
+	app.Load();
+	
 	MainMenu("MAIN MENU", &app); // TODO: replace with proper menu system
 
 	// TODO: app.Save();

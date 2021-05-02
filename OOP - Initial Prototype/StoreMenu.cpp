@@ -10,15 +10,16 @@ StoreMenu::StoreMenu(const std::string& title, Application* app) : Menu(title, a
 
 void StoreMenu::OutputOptions()
 {
-    /*for (int i = 0; i < games.size() - 4; i++)
-    {
-        Option(i + 1, games[i]);
-    }*/
+    /*
+    std::ifstream file("data.txt");
+    std::string string; //empty string
 
-    for (int i = 0; i < games.size(); i++)
+    while (getline(file , string))
     {
-        Option(i + 1, games[i]);
+        games.push_back(string);
     }
+    std::copy(games.begin(), games.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
+    */
 
     Line();
     Option('S', "Search");
@@ -35,7 +36,7 @@ bool StoreMenu::HandleChoice(char choice)
 
     if (index >= 0 && index < games.size())
     {
-        BlockingMessage("TO BE DONE AFTER DATA LOADING ");
+        BlockingMessage("TO BE DONE AFTER DATA LOADING");
         // go to game detail page
     }
 
