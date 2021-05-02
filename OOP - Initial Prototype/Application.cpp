@@ -70,7 +70,7 @@ void Application::Load() const
     {
 
         app.GetStore().games2.push_back(string);
-        //create a vector
+        //put all items in txt to vector
     }
     std::copy(app.GetStore().games2.begin(), app.GetStore().games2.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
 }
