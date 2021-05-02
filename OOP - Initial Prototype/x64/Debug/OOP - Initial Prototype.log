@@ -1,0 +1,18 @@
+﻿  Account.cpp
+  Admin.cpp
+  Application.cpp
+  Game.cpp
+  LibraryItem.cpp
+  LoginUserMenu.cpp
+  MainMenu.cpp
+  Menu.cpp
+  Player.cpp
+  ProfileMenu.cpp
+  Source.cpp
+  Store.cpp
+  StoreMenu.cpp
+  User.cpp
+  Utils.cpp
+  Generating Code...
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\Object-Oriented-Programming\OOP - Initial Prototype\LoginUserMenu.cpp(38): warning C4715: 'LoginUserMenu::HandleChoice': not all control paths return a value
+  OOP - Initial Prototype.vcxproj -> E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\Object-Oriented-Programming\x64\Debug\OOP - Initial Prototype.exe
