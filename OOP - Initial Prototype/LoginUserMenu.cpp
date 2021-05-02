@@ -8,10 +8,10 @@ LoginUserMenu::LoginUserMenu(const std::string& title, Application* app) : Menu(
 
 void LoginUserMenu::OutputOptions()
 {
-    for (int i = 0; i < users.size(); i++)
+    for (int i = 0; i < 3; i++)
     {
         // adding 1 so the display is nicer for the user
-        Option(i + 1, users[i]);
+        Option(i + 1, app->GetCurrentAccount()->users[i]->GetUsername());
     }
 }
 
@@ -19,16 +19,53 @@ bool LoginUserMenu::HandleChoice(char choice)
 {
     int index = choice - '1';
 
-    if (index >= 0 && index < users.size())
+    if (index >= 0 && index < 3)
     {
         switch (choice)
         {
         case '1': {
             
-            BlockingMessage("TEST");
+            int index = choice - '1';
+            
+            if (index >= 0 && index < 3) // TODO: Hardcoded numbers, change when using List<T>
+            {
+                std::string username = app->GetCurrentAccount()->users[index]->GetUsername();
+
+                std::cout << "  Enter password for " << username << ": ";
+                if (app->LoginUser(username, Utils::getLineFromUser()))
+                {
+                    return true;
+                }
+            }
+            				
         }
         case '2': {
-            
+            int index = choice - '1';
+
+            if (index >= 0 && index < 3) // TODO: Hardcoded numbers, change when using List<T>
+            {
+                std::string username = app->GetCurrentAccount()->users[index]->GetUsername();
+
+                std::cout << "  Enter password for " << username << ": ";
+                if (app->LoginUser(username, Utils::getLineFromUser()))
+                {
+                    return true;
+                }
+            }
+        }
+        case '3': {
+            int index = choice - '1';
+
+            if (index >= 0 && index < 3) // TODO: Hardcoded numbers, change when using List<T>
+            {
+                std::string username = app->GetCurrentAccount()->users[index]->GetUsername();
+
+                std::cout << "  Enter password for " << username << ": ";
+                if (app->LoginUser(username, Utils::getLineFromUser()))
+                {
+                    return true;
+                }
+            }
         }
         default:
             break;

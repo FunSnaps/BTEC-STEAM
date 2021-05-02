@@ -58,6 +58,3 @@ bool MainMenu::HandleChoice(char choice)
 	return false;
 }
 
-void MainMenu::userProfile() {
-	Option(1, app->GetCurrentUser()->GetUsername());
-}
