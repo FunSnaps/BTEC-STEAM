@@ -6,6 +6,7 @@
 
 #include <fstream>
 #include <string>
+#include <iostream>
 #include <algorithm>
 
 
@@ -30,6 +31,7 @@ class Application
 		void Save();
 		
 		Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection
+		
 	private:
 		Store store;
 		Account* currentAccount;

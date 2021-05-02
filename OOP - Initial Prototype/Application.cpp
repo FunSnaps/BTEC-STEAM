@@ -64,17 +64,16 @@ void Application::Load() const
     Application app;
 
     std::ifstream file("data.txt");
-    std::string string; //empty string
+    std::string string = " ";
 
     while (getline(file, string))
     {
-
         app.GetStore().games2.push_back(string);
         //put all items in txt to vector
     }
+    // HERE
     std::copy(app.GetStore().games2.begin(), app.GetStore().games2.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
 }
-
 void Application::Save()
 {
 }

@@ -10,16 +10,8 @@ StoreMenu::StoreMenu(const std::string& title, Application* app) : Menu(title, a
 
 void StoreMenu::OutputOptions()
 {
-    /*
-    std::ifstream file("data.txt");
-    std::string string; //empty string
-
-    while (getline(file , string))
-    {
-        games.push_back(string);
-    }
-    std::copy(games.begin(), games.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
-    */
+    Application app;
+    app.Load();
 
     Line();
     Option('S', "Search");

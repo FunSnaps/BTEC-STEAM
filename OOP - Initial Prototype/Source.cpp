@@ -257,11 +257,12 @@ void createHardcodedTestData()
 //}
 
 void main()
-{
+{	
+	Application app;
 	// TODO: Remove call to dummy data, instead use Load and Save
 	createHardcodedTestData();
 
-	app.Load();
+	//app.Load();
 	
 	MainMenu("MAIN MENU", &app); // TODO: replace with proper menu system
 
