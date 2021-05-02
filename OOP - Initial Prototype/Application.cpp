@@ -1,7 +1,8 @@
 #include "Application.h"
 #include <iostream>
 
-Application::Application() : currentAccount(nullptr), currentUser(nullptr)
+Application::Application() 
+	: currentAccount(nullptr), currentUser(nullptr)
 {
 }
 
@@ -9,7 +10,7 @@ Application::~Application()
 {
 	for (int i = 0; i < 1; ++i)
 	{
-		delete accounts[i];
+		accounts.deleteFirst();
 	}
 }
 
@@ -41,7 +42,7 @@ Store& Application::GetStore()
 bool Application::LoginAccount(const std::string& email, const std::string& password)
 {
 	// TODO: This currently always logs you in as the first account
-	currentAccount = accounts[0];
+	currentAccount = accounts.first();
 
 	return true;
 }
