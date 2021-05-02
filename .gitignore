@@ -1,3 +1,7 @@
 
 .vs/OOP - Initial Prototype/v16/Browse.VC.db
 .vs/OOP - Initial Prototype/v16/Browse.VC.opendb
+*.db-shm
+*.db-wal
+*.ipch
+*.db-shm
