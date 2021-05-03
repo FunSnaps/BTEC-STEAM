@@ -15,7 +15,7 @@ class Application
 		bool IsAccountLoggedIn() const;
 		bool IsUserLoggedIn() const;
 		Account* GetCurrentAccount() const;
-		User* GetCurrentUser() const;
+		Player* GetCurrentUser() const;
 
 		Store& GetStore();
 
@@ -29,5 +29,5 @@ class Application
 	private:
 		Store store;
 		Account* currentAccount;
-		User* currentUser;
+		Player* currentUser;
 };

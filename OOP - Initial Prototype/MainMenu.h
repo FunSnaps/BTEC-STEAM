@@ -12,6 +12,4 @@ public:
 	void OutputOptions() final;
 	bool HandleChoice(char choice) final;
 
-private:
-	void userProfile();
 };

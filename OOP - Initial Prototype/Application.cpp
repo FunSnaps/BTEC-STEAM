@@ -14,6 +14,8 @@ Application::~Application()
 	}
 }
 
+
+
 bool Application::IsUserLoggedIn() const
 {
 	return currentUser != nullptr;
@@ -29,7 +31,7 @@ Account* Application::GetCurrentAccount() const
 	return currentAccount;
 }
 
-User* Application::GetCurrentUser() const
+Player* Application::GetCurrentUser() const
 {
 	return currentUser;
 }

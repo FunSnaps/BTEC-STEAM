@@ -1,9 +1,4 @@
-//-------------------------------------------------
-// List and Node: using singly linked list of Nodes
-//-------------------------------------------------
-
 #pragma once
-
 #include <assert.h> // for assert
 
 //------------------------------------------------------------------------------
@@ -34,7 +29,6 @@ template <class T>
 Node<T>::Node(const T& item) : item(item), next(nullptr)
 {
 }
-
 //-----------------------------------------------------------------------------
 // List
 //
@@ -52,6 +46,7 @@ public:
     ~List();                                 // destructor
     List<T>& operator = (const List<T>&);    // copy assignment operator
     bool operator == (const List<T>&) const; // compare with content of another list
+    const T& operator [] (int pos) const;    // overload [] operator to access a list node
     bool isEmpty() const;                    // check if list is empty
     const T first() const;                   // return first item (MUST be non-empty)
     const T last() const;                    // return last item (MUST be non-empty)
@@ -69,17 +64,13 @@ private:
     void copy(const List<T>&);               // make a deep copy of the list
 };
 
-// List implementation
-// -------------------
 template <class T>
-List<T>::List() 
-    : head(nullptr)
+List<T>::List() : head(nullptr)
 {
 }
 
 template <class T>
-List<T>::List(const T& item) 
-    : head(new Node<T>(item))
+List<T>::List(const T& item) : head(new Node<T>(item))
 {
     assert(head != nullptr);
 }
@@ -128,6 +119,20 @@ bool List<T>::operator == (const List<T>& rhs) const
         else
         {
             return false;
+        }
+    }
+}
+
+template<class T>
+const T& List<T>::operator[](int pos) const
+{
+    int size = 0;
+
+    for (Node<T>* pn = head; pn != nullptr; pn = pn->next)
+    {
+        size++;
+        if (size == pos) {
+            return pn->item;
         }
     }
 }

@@ -6,7 +6,7 @@ class User
 {
 	public:
 		User(const std::string& username, const std::string& password, const std::string& created);
-		virtual ~User();
+		virtual ~User() = 0;
 		const std::string& GetUsername() const;
 		const bool& GetUserStatus() const;
 	private:

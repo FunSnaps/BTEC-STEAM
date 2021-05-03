@@ -8,3 +8,4 @@ LibraryItem::LibraryItem(const std::string& date, Game* game)
 LibraryItem::~LibraryItem()
 {
 }
+
