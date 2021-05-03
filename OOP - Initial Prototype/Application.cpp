@@ -75,14 +75,14 @@ void Application::Load() const
 
     while (file >> string)
     {    
-        app.GetStore().games.addInFront(string);
+        /*app.GetStore().games.addInFront(string);*/
         //put all items in txt to vector
     }
 
-    for each (std::string stuff in app.GetStore().games)
-    {
-        std::cout << stuff << std::endl; 
-    }
+    //for each (std::string stuff in app.GetStore().games)
+    //{
+    //    std::cout << stuff << std::endl; 
+    //}
     
     //std::copy(app.GetStore().games2.begin(), app.GetStore().games2.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
 }

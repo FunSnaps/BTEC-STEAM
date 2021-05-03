@@ -7,7 +7,7 @@ std::string Utils::getLineFromUser()
     return input;
 }
 
-char Utils::getCharFromUser()
+char Utils::getCharFromUser() const
 {
     return toupper(getLineFromUser()[0]);
 }
