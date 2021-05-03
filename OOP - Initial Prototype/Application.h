@@ -9,7 +9,6 @@
 #include <iostream>
 #include <algorithm>
 
-
 class Application
 {
 	public:

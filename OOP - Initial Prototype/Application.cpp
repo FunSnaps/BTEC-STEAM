@@ -63,16 +63,22 @@ void Application::Load() const
 {
     Application app;
 
+    std::vector<std::string> vec;
     std::ifstream file("data.txt");
-    std::string string = " ";
+    std::string string;
 
-    while (getline(file, string))
-    {
-        app.GetStore().games2.push_back(string);
+    while (file >> string)
+    {    
+        app.GetStore().games.addInFront(string);
         //put all items in txt to vector
     }
-    // HERE
-    std::copy(app.GetStore().games2.begin(), app.GetStore().games2.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
+
+    for each (std::string stuff in app.GetStore().games)
+    {
+        std::cout << stuff << std::endl; 
+    }
+    
+    //std::copy(app.GetStore().games2.begin(), app.GetStore().games2.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
 }
 void Application::Save()
 {
