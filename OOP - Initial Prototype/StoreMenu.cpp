@@ -10,15 +10,8 @@ StoreMenu::StoreMenu(const std::string& title, Application* app) : Menu(title, a
 
 void StoreMenu::OutputOptions()
 {
-    /*for (int i = 0; i < games.size() - 4; i++)
-    {
-        Option(i + 1, games[i]);
-    }*/
-
-    for (int i = 0; i < games.size(); i++)
-    {
-        Option(i + 1, games[i]);
-    }
+    Application app;
+    app.Load();
 
     Line();
     Option('S', "Search");
@@ -35,7 +28,7 @@ bool StoreMenu::HandleChoice(char choice)
 
     if (index >= 0 && index < games.size())
     {
-        BlockingMessage("TO BE DONE AFTER DATA LOADING ");
+        BlockingMessage("TO BE DONE AFTER DATA LOADING");
         // go to game detail page
     }
 
