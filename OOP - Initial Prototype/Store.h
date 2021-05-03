@@ -9,7 +9,7 @@ class Store
 	public:
 		Store();
 		~Store();
-		//Game* games[9] = { }; // TODO: should be a dynamic collection
-		List<std::string> games = {};
+		void addGame(Game* game);
 	private:
+		List<Game*> games = {};
 };

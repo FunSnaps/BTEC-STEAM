@@ -11,3 +11,9 @@ Store::~Store()
 		delete games[i];
 	}
 }
+
+void Store::addGame(Game* game)
+{
+	games.addInFront(game);
+}
+

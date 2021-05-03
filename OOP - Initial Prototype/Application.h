@@ -18,7 +18,7 @@ class Application
 		bool IsAccountLoggedIn() const;
 		bool IsUserLoggedIn() const;
 		Account* GetCurrentAccount() const;
-		User* GetCurrentUser() const;
+		Player* GetCurrentUser() const;
 
 		Store& GetStore();
 
@@ -26,13 +26,13 @@ class Application
 		bool LoginUser(const std::string& username, const std::string& password);
 		void LogoutUser();
 
-		void Load()const;
+		void Load();
 		void Save();
 		
-		Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection
+		List<Account*> accounts = { }; // TODO: this needs changing to a dynamic collection
 		
 	private:
 		Store store;
 		Account* currentAccount;
-		User* currentUser;
+		Player* currentUser;
 };
