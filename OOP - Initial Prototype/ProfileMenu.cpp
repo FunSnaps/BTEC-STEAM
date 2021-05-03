@@ -8,15 +8,12 @@ ProfileMenu::ProfileMenu(const std::string& title, Application* app)
 
 void ProfileMenu::OutputOptions( )
 {
-	for (int i = 0; i < 1; i++)
-	{
 		// adding 1 so the display is nicer for the user
-		Option(i + 1, "Account holder: " + app->accounts[i]->users[i]->GetUsername());
+		Option(1, "Account holder: " + app->accounts.first()->users[0]->GetUsername());
 		Line();
-		Option(i + 2, "Username: " + app->GetCurrentAccount()->users[i]->GetUsername());
+		Option(2, "Username: " + app->GetCurrentAccount()->users[0]->GetUsername());
 		Line();
-		Option(i + 3, "Password");
-	}
+		
 }
 
 

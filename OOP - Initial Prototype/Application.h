@@ -3,6 +3,7 @@
 #include "Account.h"
 #include "User.h"
 #include "Store.h"
+#include "ListT.h"
 
 #include <fstream>
 #include <string>
@@ -18,7 +19,7 @@ class Application
 		bool IsAccountLoggedIn() const;
 		bool IsUserLoggedIn() const;
 		Account* GetCurrentAccount() const;
-		User* GetCurrentUser() const;
+		Player* GetCurrentUser() const;
 
 		Store& GetStore();
 
@@ -29,10 +30,13 @@ class Application
 		void Load()const;
 		void Save();
 		
-		Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection
-		
+
+		List<Account*> accounts;
+
+		//Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection
+
 	private:
 		Store store;
 		Account* currentAccount;
-		User* currentUser;
+		Player* currentUser;
 };

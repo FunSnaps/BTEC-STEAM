@@ -36,8 +36,7 @@ bool LoginUserMenu::HandleChoice(char choice)
                 {
                     return true;
                 }
-            }
-            				
+            }	
         }
         case '2': {
             int index = choice - '1';
