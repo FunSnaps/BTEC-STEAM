@@ -1,7 +1,7 @@
 #include "Player.h"
 
-Player::Player(const std::string& username, const std::string& password, const std::string& created)
-	: User(username, password, created)
+Player::Player(const std::string& username, const std::string& password, const std::string& created, const int& credit)
+	: User(username, password, created, credit)
 {
 }
 
@@ -16,3 +16,8 @@ Player::~Player()
 //void Player::addItem(LibraryItem* libraryItem) {
 //	library.addAtEnd(libraryItem);
 //}
+
+void Player::addLibraryItem(LibraryItem* item)
+{
+	library.push_back(item);
+}

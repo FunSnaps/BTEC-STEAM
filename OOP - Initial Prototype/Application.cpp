@@ -65,7 +65,7 @@ Account* Application::GetAccount(const int& index) const
 {
     if (!(accounts.isEmpty() && accounts.length() < index))
     {
-        return accounts[index];
+        return accounts.first();
     }
 }
 
@@ -129,8 +129,6 @@ void Application::Load()
             int day, month, year;
 
             std::string date;
-            std::string email = " ";
-            std::string password = " ";
 
             for (int i = 0; i < 3; i++)
             {
@@ -158,17 +156,19 @@ void Application::Load()
             accounts.addInFront(new Account(email, password, date));
         }
         else if (line == "LIBRARY-ITEM") {
-            int id;
+            int id, day, month, year, playTime;
             std::string releaseDate;
-            int playTime;
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 3; i++) {
                 getline(theFile, line);
                 switch (i) {
                 case 0:
                     id = std::stoi(line);
                     break;
                 case 1:
+                    //year = std::stoi(line.substr(0, line.find('-')));
+                    //month = std::stoi(line.substr(5, line.find('-')));
+                    //day = std::stoi(line.substr(8, line.find('-')));
                     releaseDate = line;
                     break;
                 case 2:
@@ -179,10 +179,9 @@ void Application::Load()
                 }
             }
             Player* user = dynamic_cast<Player*>(accounts.first()->users.first());
-            //Player* user = dynamic_cast<Player*>(accounts.first()->users.first());
             Game game = Game(GetStore().getIndex(id));
             LibraryItem* item = new LibraryItem(releaseDate, game);
-            user->library.push_back(item);
+            user->addLibraryItem(item);
         }
         else if (line == "ACCOUNT-PLAYER")
         {
@@ -213,8 +212,8 @@ void Application::Load()
                 }
             }
             //Date date(day, month, year);
-            Player* player = new Player(username, password, date);
-            accounts[0]->users.addInFront(player);
+            Player* player = new Player(username, password, date, credit);
+            accounts.first()->users.addInFront(player);
         }
         else if (line == "ACCOUNT-ADMIN")
         {
@@ -250,8 +249,8 @@ void Application::Load()
             }
         }
         //Date date(day, month, year);
-        Player* player = new Player(username, password, date);
-        accounts[0]->users.addInFront(player);
+        Player* player = new Player(username, password, date, credit);
+        accounts.first()->users.addInFront(player);
         }
     }
         theFile.close();

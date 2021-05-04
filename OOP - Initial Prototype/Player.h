@@ -10,13 +10,13 @@
 class Player : public User
 {
 	public:
-		Player(const std::string&, const std::string&, const std::string&);
+		Player(const std::string&, const std::string&, const std::string&, const int&);
 		~Player();
 		
 		//void addItem(LibraryItem* libraryItem);
-
-		std::vector<LibraryItem*> library;
+		void addLibraryItem(LibraryItem* item);
 		//List<LibraryItem*> library;
 		//LibraryItem* library[2] = { }; // TODO: replace with custom List<T> class
 	private:
+		std::vector<LibraryItem*> library;
 };

@@ -13,11 +13,9 @@ void ProfileMenu::OutputOptions( )
 		Line();
 		Option(2, "Username: " + app->GetCurrentAccount()->users[0]->GetUsername());
 		Line();
-		for (int iter = 0; iter != app->GetCurrentUser()->library.size(); iter++) {
+		/*for (int iter = 0; iter != app->GetCurrentUser()->library.size(); iter++) {
 			Option(3, app->GetCurrentUser()->library[iter]->getGame().GetName());
-		}
-		
-		
+		}*/
 }
 
 

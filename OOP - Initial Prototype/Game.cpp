@@ -1,7 +1,7 @@
 #include "Game.h"
 
-Game::Game(const std::string& name, const std::string& desc, int cost, int rating)
-	: name(name), description(desc), cost(cost), ageRating(rating)
+Game::Game(const std::string& name, const std::string& desc, const int& cost, const int& agerating)
+	: name(name), description(desc), cost(cost), ageRating(agerating)
 {
 }
 

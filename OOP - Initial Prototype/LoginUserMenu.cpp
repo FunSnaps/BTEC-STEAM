@@ -11,7 +11,7 @@ void LoginUserMenu::OutputOptions()
     for (int i = 0; i < 3; i++)
     {
         // adding 1 so the display is nicer for the user
-        Option(i + 1, app->GetCurrentAccount()->users[i]->GetUsername());
+        Option(i + 1, app->GetAccount(i)->users.operator[](i)->GetUsername());
     }
 }
 
