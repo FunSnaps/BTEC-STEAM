@@ -9,11 +9,11 @@
 class Player : public User
 {
 	public:
-		Player(const std::string&, const std::string&, const Date&, const int& something);
+		Player(const std::string&, const std::string&, const Date&, const int& credit);
 		~Player();
 
 		void addLibraryItem(LibraryItem* item);
 		List<LibraryItem*> getLibraryItems() const;
 	private:
-		List<LibraryItem*> library = {}; //get set
+		List<LibraryItem*> library; //get set
 };

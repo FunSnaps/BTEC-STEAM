@@ -11,8 +11,7 @@ void ProfileMenu::OutputOptions( )
 	for (int i = 0; i < 1; i++)
 	{
 		// adding 1 so the display is nicer for the user
-		Option(i + 1, "Account holder: " + app->accounts[i]->users[i]->GetUsername());
-		Line();
+		//Option(i + 1, "Account holder: " + app->GetAccount()->users.
 		Option(i + 2, "Username: " + app->GetCurrentAccount()->users[i]->GetUsername());
 		Line();
 		Option(i + 3, "Password");
