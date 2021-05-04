@@ -9,11 +9,13 @@ ProfileMenu::ProfileMenu(const std::string& title, Application* app)
 void ProfileMenu::OutputOptions( )
 {
 		// adding 1 so the display is nicer for the user
-		Option(1, "Account holder: " + app->accounts.first()->users[0]->GetUsername());
+		Option(1, "Account holder: " + app->GetAccount(1)->users[0]->GetUsername());
 		Line();
 		Option(2, "Username: " + app->GetCurrentAccount()->users[0]->GetUsername());
 		Line();
-		
+		/*for (int iter = 0; iter != app->GetCurrentUser()->library.size(); iter++) {
+			Option(3, app->GetCurrentUser()->library[iter]->getGame().GetName());
+		}*/
 }
 
 

@@ -3,7 +3,6 @@
 #include "Menu.h"
 
 #include <iostream>
-#include <vector>
 
 class StoreMenu : public Menu
 {
@@ -12,5 +11,6 @@ public:
     void OutputOptions() final;
     bool HandleChoice(char choice) final;
 private:
-    std::vector<std::string> games;
+    List<std::string> games;
+    //std::vector<std::string> games;
 };

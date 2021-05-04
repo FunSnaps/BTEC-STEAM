@@ -10,6 +10,12 @@ class Store
 		Store();
 		~Store();
 		//Game* games[9] = { }; // TODO: should be a dynamic collection
-		List<std::string> games = {};
+
+		void addGame(Game* game);
+		Game getIndex(const int& index);
+		List <Game*> GetGames();
+		List <std::string> searchGameName();
+
 	private:
+		List<Game*> games;
 };

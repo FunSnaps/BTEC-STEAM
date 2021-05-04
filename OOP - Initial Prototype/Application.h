@@ -22,20 +22,22 @@ class Application
 		Player* GetCurrentUser() const;
 
 		Store& GetStore();
+		Account* GetAccount(const int& index) const;
 
 		bool LoginAccount(const std::string& email, const std::string& password);
 		bool LoginUser(const std::string& username, const std::string& password);
 		void LogoutUser();
+		void addAccount(Account* account);
 
-		void Load()const;
+		void Load();
 		void Save();
 		
 
-		List<Account*> accounts;
 
 		//Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection
 
 	private:
+		List<Account*> accounts;
 		Store store;
 		Account* currentAccount;
 		Player* currentUser;

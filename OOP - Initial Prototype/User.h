@@ -5,13 +5,15 @@
 class User
 {
 	public:
-		User(const std::string& username, const std::string& password, const std::string& created);
+		User(const std::string& username, const std::string& password, const std::string& created, const int&);
 		virtual ~User() = 0;
 		const std::string& GetUsername() const;
 		const bool& GetUserStatus() const;
+		const int& getCredit() const;
 	private:
 		bool userStatus = false;
 		std::string username;
 		std::string password;
 		std::string created;  // TODO: replace with custom Date class, currently YYYY-MM-DD
+		const int credit;
 };
