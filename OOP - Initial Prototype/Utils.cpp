@@ -11,3 +11,5 @@ char Utils::getCharFromUser()
 {
     return toupper(getLineFromUser()[0]);
 }
+
+//create a toLower?

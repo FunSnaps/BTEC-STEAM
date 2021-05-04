@@ -40,12 +40,12 @@ void Menu::Line(const std::string& text)
     std::cout << "  " << text << "\n";
 }
 
-void Menu::Option(char id, const std::string& option)
+void Menu::Option(const char id, const std::string& option)
 {
     std::cout << "  " << id << ") " << option << '\n';
 }
 
-void Menu::Option(int id, const std::string& option)
+void Menu::Option(const int& id, const std::string& option)
 {
     // shift the integer value up to the correct position in the ascii table
     char ascii = id + '0';

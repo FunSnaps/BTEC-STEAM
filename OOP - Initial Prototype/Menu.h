@@ -27,8 +27,8 @@ protected:
 
     void Line();										// output blank line
     void Line(const std::string& text);					// output a message
-    void Option(int id, const std::string& option);		// output menu option
-    void Option(char id, const std::string& option);	// output menu option
+    void Option(const int& id, const std::string& option);		// output menu option
+    void Option(const char id, const std::string& option);	// output menu option
     std::string Question(const std::string& question);	// output a question and return the user's input
     void BlockingMessage(const std::string& message);	// output message and wait for the user to press enter
 

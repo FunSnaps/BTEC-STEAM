@@ -15,8 +15,6 @@ Application::~Application()
     }
 }
 
-
-
 bool Application::IsUserLoggedIn() const
 {
     return currentUser != nullptr;
@@ -63,6 +61,19 @@ bool Application::LoginUser(const std::string& username, const std::string& pass
 void Application::LogoutUser()
 {
     currentUser = nullptr;
+}
+
+Account* Application::GetAccount(const int& index) const
+{
+    if (!(accounts.isEmpty() && accounts.length() < index))
+    {
+        return accounts[index];
+    }
+}
+
+void Application::addAccount(Account* account)
+{
+    this->accounts.addInFront(account);
 }
 
 void Application::Load()

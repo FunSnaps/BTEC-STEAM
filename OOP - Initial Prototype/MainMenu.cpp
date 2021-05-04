@@ -48,6 +48,7 @@ bool MainMenu::HandleChoice(char choice)
 	{
 		if (app->IsUserLoggedIn())
 		{
+			//create a profile menu unique to the user
 			ProfileMenu("Profile Menu", app);
 		}
 	} break;

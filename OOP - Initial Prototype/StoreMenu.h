@@ -1,9 +1,8 @@
 #pragma once
 
 #include "Menu.h"
-
-#include <iostream>
-#include <vector>
+#include "ListT.h"
+#include <string>
 
 class StoreMenu : public Menu
 {
@@ -12,5 +11,5 @@ public:
     void OutputOptions() final;
     bool HandleChoice(char choice) final;
 private:
-    std::vector<std::string> games;
+    List<std::string> games;
 };
