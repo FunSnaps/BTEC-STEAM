@@ -1,5 +1,4 @@
 #include "Application.h"
-#include <iostream>
 
 Application::Application()
     : currentAccount(nullptr), currentUser(nullptr)
@@ -116,7 +115,6 @@ void Application::Load()
                 case 4:
                     cost = std::stoi(string);
                     break;
-
                 default:
                     //return false;
                     break;
@@ -134,9 +132,9 @@ void Application::Load()
                 switch (i)
                 {
                 case 0:
-                    day = std::stoi(string.substr(0, string.find("-")));
-                    month = std::stoi(string.substr(5, string.find("-")));
-                    year = std::stoi(string.substr(8, string.find("-")));
+                    year = std::stoi(string.substr(0, string.find('-')));
+                    month = std::stoi(string.substr(5, string.find('-')));
+                    day = std::stoi(string.substr(8, string.find('-')));
                     break;
                 case 1:
                     email = string;
@@ -149,7 +147,7 @@ void Application::Load()
                     break;
                 }
             }
-            Date date(day, month, year);
+            Date date(year, month, day);
             accounts.addInFront(new Account(email, password, date));
         }
         else if (string == "LIBRARY-ITEM")
@@ -163,9 +161,9 @@ void Application::Load()
                 case 0:
                     id = std::stoi(string);
                 case 1:
-                    day = std::stoi(string.substr(0, string.find("-")));
-                    month = std::stoi(string.substr(5, string.find("-")));
-                    year = std::stoi(string.substr(8, string.find("-")));
+                    year = std::stoi(string.substr(0, string.find('-')));
+                    month = std::stoi(string.substr(5, string.find('-')));
+                    day = std::stoi(string.substr(8, string.find('-')));
                     break;
                 case 2:
                     minutes = std::stoi(string); //needs to be somewhere 
@@ -175,9 +173,9 @@ void Application::Load()
                     break;
                 }
             }
-            Date date = Date(day, month, year);
+            Date date(year, month, day);
             Game game = Game(GetStore().getIndex(id));
-            Player* player = dynamic_cast<Player*>(accounts[0]->users[0]); //in order to access the player's add func.
+            Player* player = dynamic_cast<Player*>(accounts.first()->users.first()); //in order to access the player's add func.
             LibraryItem* item = new LibraryItem(date, game);
             player->addLibraryItem(item);
         }
@@ -190,9 +188,9 @@ void Application::Load()
                 switch (i)
                 {
                 case 0:
-                    day = std::stoi(string.substr(0, string.find('-')));
+                    year = std::stoi(string.substr(0, string.find('-')));
                     month = std::stoi(string.substr(5, string.find('-')));
-                    year = std::stoi(string.substr(8, string.find('-')));
+                    day = std::stoi(string.substr(8, string.find('-')));
                     break;
                 case 1:
                     username = string;
@@ -208,7 +206,7 @@ void Application::Load()
                     break;
                 }
             }
-            Date date(day, month, year);
+            Date date(year, month, day);
             Player* player = new Player(username, password, date, credit);
             accounts[0]->users.addInFront(player);
         }
@@ -226,9 +224,9 @@ void Application::Load()
                 {
 
                 case 0:
-                    day = std::stoi(string.substr(0, string.find('-')));
+                    year = std::stoi(string.substr(0, string.find('-')));
                     month = std::stoi(string.substr(5, string.find('-')));
-                    year = std::stoi(string.substr(8, string.find('-')));
+                    day = std::stoi(string.substr(8, string.find('-')));
                     break;
                 case 1:
                     username = string;
@@ -244,7 +242,7 @@ void Application::Load()
                     break;
                 }
             }
-            Date date(day, month, year);
+            Date date(year, month, day);
             Player* player = new Player(username, password, date, credit);
             accounts[0]->users.addInFront(player);
         }

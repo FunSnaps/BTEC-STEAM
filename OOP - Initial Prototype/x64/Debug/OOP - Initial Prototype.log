@@ -1,23 +1,4 @@
-﻿  Account.cpp
-  Admin.cpp
-  Application.cpp
-  LoginUserMenu.cpp
-  MainMenu.cpp
-  Menu.cpp
-  Player.cpp
-  ProfileMenu.cpp
-  Source.cpp
-  StoreMenu.cpp
-  User.cpp
-  Utils.cpp
-  Generating Code...
-E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::operator[]': not all control paths return a value
-E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<Player *>::operator[]': not all control paths return a value
-E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<LibraryItem *>::operator[]': not all control paths return a value
-E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\LoginUserMenu.cpp(75): warning C4715: 'LoginUserMenu::HandleChoice': not all control paths return a value
-E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<Player *>::operator[]': not all control paths return a value
-E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(72): warning C4715: 'Application::GetAccount': not all control paths return a value
+﻿  Application.cpp
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Application.cpp(71): warning C4715: 'Application::GetAccount': not all control paths return a value
 E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<Account *>::operator[]': not all control paths return a value
-E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<Player *>::operator[]': not all control paths return a value
-E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<Player *>::operator[]': not all control paths return a value
   OOP - Initial Prototype.vcxproj -> E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\x64\Debug\OOP - Initial Prototype.exe

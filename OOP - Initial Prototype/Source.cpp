@@ -11,9 +11,6 @@
 #include "MainMenu.h"
 #include "Source.h"
 
-	// TODO: Remove from global scope once menu system is integrated
-	
-
 /*void createHardcodedTestData()
 {
 	// Setup store with some games
@@ -262,7 +259,7 @@ void main()
 	Application app;
 	//createHardcodedTestData();
 
-	//app.Load();
+	app.Load();
 	
 	MainMenu("MAIN MENU", &app); // TODO: replace with proper menu system
 

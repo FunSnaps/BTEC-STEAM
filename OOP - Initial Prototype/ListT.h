@@ -132,10 +132,10 @@ const T& List<T>::operator[](int pos) const
 
     for (Node<T>* pn = head; pn != nullptr; pn = pn->next)
     {
-        size++;
         if (size == pos) {
             return pn->item;
         }
+        size++;
     }
 }
 

@@ -5,7 +5,8 @@ class Date
 public:
     //constructors + destructor
     Date(); //default
-    Date(int dd, int mm, int yyyy);
+    Date(int yyyy, int dd, int mm);
+    //Date(int dd, int mm, int yyyy);
     Date(const Date&); //copy
     ~Date(); //destructor
 
@@ -26,7 +27,7 @@ public:
     bool isDifferent(const Date& other) const;
     bool operator != (const Date& other) const; //operator overload for isDifferent
 
-    bool isValid() const;
+    bool isValid(int year, int day, int month) const;
     //mutate
     void setDate(int dd, int mm, int yy);
 private:

@@ -5,6 +5,7 @@
 #include "Date.h"
 #include "User.h"
 #include "ListT.h"
+#include <vector>
 
 class Player : public User
 {
@@ -13,7 +14,7 @@ class Player : public User
 		~Player();
 
 		void addLibraryItem(LibraryItem* item);
-		List<LibraryItem*> getLibraryItems() const;
+		//std::vector<LibraryItem*> getLibraryItems() const;
 	private:
-		List<LibraryItem*> library; //get set
+		std::vector<LibraryItem*> library; //get set
 };

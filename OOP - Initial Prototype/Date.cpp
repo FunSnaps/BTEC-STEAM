@@ -4,9 +4,14 @@ Date::Date() : day(0), month(0), year(0) //default
 {
 }
 
-Date::Date(int dd, int mm, int yyyy) : day(dd), month(mm), year(yyyy)
+/*Date::Date(int dd, int mm, int yyyy) : day(dd), month(mm), year(yyyy)
 {
-	assert(isValid()); //check that date is valid
+    assert(isValid()); //check that date is valid
+}*/
+
+Date::Date(int yyyy, int mm, int dd) : year(yyyy), month(mm), day(dd)
+{
+    assert(isValid(year, month, day)); //check that date is valid
 }
 
 Date::Date(const Date& d) : day(d.day), month(d.month), year(d.year) // copy constructor
@@ -20,126 +25,126 @@ Date::~Date()
 
 int Date::getYear() const
 {
-	return year;
+    return year;
 }
 
 int Date::getMonth() const
 {
-	return month;
+    return month;
 }
 
 int Date::getDay() const
 {
-	return month;
+    return month;
 }
 
 bool Date::isBefore(const Date& other) const
 {
-	if (other.year < year) {
-		return true;
-	}
-	else if (other.year == year && other.month < month) {
-		return true;
-	}
-	else if (other.year == year && other.month == month && other.day < day) {
-		return true;
-	}
+    if (other.year < year) {
+        return true;
+    }
+    else if (other.year == year && other.month < month) {
+        return true;
+    }
+    else if (other.year == year && other.month == month && other.day < day) {
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
 bool Date::operator<(const Date& other) const //is before
 {
-	if (other.year < year) {
-		return true;
-	}
-	else if (other.year == year && other.month < month) {
-		return true;
-	}
-	else if (other.year == year && other.month == month && other.day < day) {
-		return true;
-	}
+    if (other.year < year) {
+        return true;
+    }
+    else if (other.year == year && other.month < month) {
+        return true;
+    }
+    else if (other.year == year && other.month == month && other.day < day) {
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
 bool Date::isAfter(const Date& other) const
 {
-	if (other.year > year) {
-		return true;
-	}
-	else if (other.year == year && other.month > month) {
-		return true;
-	}
-	else if (other.year == year && other.month == month && other.day > day) {
-		return true;
-	}
+    if (other.year > year) {
+        return true;
+    }
+    else if (other.year == year && other.month > month) {
+        return true;
+    }
+    else if (other.year == year && other.month == month && other.day > day) {
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
 bool Date::operator>(const Date& other) const //is after
 {
-	if (other.year > year) {
-		return true;
-	}
-	else if (other.year == year && other.month > month) {
-		return true;
-	}
-	else if (other.year == year && other.month == month && other.day > day) {
-		return true;
-	}
+    if (other.year > year) {
+        return true;
+    }
+    else if (other.year == year && other.month > month) {
+        return true;
+    }
+    else if (other.year == year && other.month == month && other.day > day) {
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
 bool Date::isSame(const Date& other) const
 {
-	if (other.day == day && other.month == year && other.year == year) {
-		return true;
-	}
-	else {
-		return false;
-	}
+    if (other.day == day && other.month == year && other.year == year) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 bool Date::operator==(const Date& other) const //is same
 {
-	if (other.day == day && other.month == year && other.year == year) {
-		return true;
-	}
-	else {
-		return false;
-	}
+    if (other.day == day && other.month == year && other.year == year) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 bool Date::isDifferent(const Date& other) const
 {
-	if (other.day != day && other.month != month && other.year != year) {
-		return true;
-	}
-	return false;
+    if (other.day != day && other.month != month && other.year != year) {
+        return true;
+    }
+    return false;
 }
 
 bool Date::operator!=(const Date& other) const //is different
 {
-	if (other.day != day && other.month != month && other.year != year) {
-		return true;
-	}
-	return false;
+    if (other.day != day && other.month != month && other.year != year) {
+        return true;
+    }
+    return false;
 }
 
-bool Date::isValid() const
+bool Date::isValid(int year, int month, int day) const
 {
-	if (day > 0 && day <= 31 && month > 0 && month <= 12 && year > 0 && year <= 2030) {
-		return true;
-	}
-	return false;
+    if (day > 0 && day <= 31 && month > 0 && month <= 12 && year > 0 && year <= 2030) {
+        return true;
+    }
+    return false;
 }
 
 void Date::setDate(int dd, int mm, int yyyy)
 {
-	day = dd;
-	month = mm;
-	year = yyyy;
+    day = dd;
+    month = mm;
+    year = yyyy;
 }
