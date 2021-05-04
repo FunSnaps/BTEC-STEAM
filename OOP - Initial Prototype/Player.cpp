@@ -13,3 +13,6 @@ Player::~Player()
 	}
 }
 
+//void Player::addItem(LibraryItem* libraryItem) {
+//	library.addAtEnd(libraryItem);
+//}
