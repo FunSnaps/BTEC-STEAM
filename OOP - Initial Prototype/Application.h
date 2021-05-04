@@ -4,6 +4,7 @@
 #include "User.h"
 #include "Store.h"
 #include "ListT.h"
+#include "Date.h"
 
 #include <fstream>
 #include <string>

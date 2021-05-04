@@ -6,11 +6,12 @@
 #include "LibraryItem.h"
 #include "User.h"
 #include "ListT.h"
+#include "Date.h"
 
 class Player : public User
 {
 	public:
-		Player(const std::string&, const std::string&, const std::string&, const int&);
+		Player(const std::string&, const std::string&, Date*, const int&);
 		~Player();
 		
 		//void addItem(LibraryItem* libraryItem);

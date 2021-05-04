@@ -128,18 +128,15 @@ void Application::Load()
         {
             int day, month, year;
 
-            std::string date;
-
             for (int i = 0; i < 3; i++)
             {
                 getline(theFile, line);
                 switch (i)
                 {
                 case 0:
-                    //day = std::stoi(line.substr(0, line.find("-")));
-                    //month = std::stoi(line.substr(5, line.find("-")));
-                    //year = std::stoi(line.substr(8, line.find("-")));
-                    date = line;
+                    day = std::stoi(line.substr(8, line.find("-")));
+                    month = std::stoi(line.substr(5, line.find("-")));
+                    year = std::stoi(line.substr(0, line.find("-")));
                     break;
                 case 1:
                     email = line;
@@ -152,12 +149,11 @@ void Application::Load()
                     break;
                 }
             }
-            //Date date(day, month, year);
+            Date* date = new Date(day, month, year);
             accounts.addInFront(new Account(email, password, date));
         }
         else if (line == "LIBRARY-ITEM") {
             int id, day, month, year, playTime;
-            std::string releaseDate;
 
             for (int i = 0; i < 3; i++) {
                 getline(theFile, line);
@@ -166,10 +162,9 @@ void Application::Load()
                     id = std::stoi(line);
                     break;
                 case 1:
-                    //year = std::stoi(line.substr(0, line.find('-')));
-                    //month = std::stoi(line.substr(5, line.find('-')));
-                    //day = std::stoi(line.substr(8, line.find('-')));
-                    releaseDate = line;
+                    day = std::stoi(line.substr(8, line.find("-")));
+                    month = std::stoi(line.substr(5, line.find("-")));
+                    year = std::stoi(line.substr(0, line.find("-")));
                     break;
                 case 2:
                     playTime = std::stoi(line);
@@ -178,24 +173,23 @@ void Application::Load()
                     break;
                 }
             }
+            Date* date = new Date(day, month, year);
             Player* user = dynamic_cast<Player*>(accounts.first()->users.first());
             Game game = Game(GetStore().getIndex(id));
-            LibraryItem* item = new LibraryItem(releaseDate, game);
+            LibraryItem* item = new LibraryItem(date, game);
             user->addLibraryItem(item);
         }
         else if (line == "ACCOUNT-PLAYER")
         {
             int day, month, year;
-            std::string date;
             for (int i = 0; i < 4; i++) {
                 getline(theFile, line);
                 switch (i)
                 {
                 case 0:
-                    /*day = std::stoi(line.substr(0, line.find('-')));
-                    month = std::stoi(line.substr(5, line.find('-')));
-                    year = std::stoi(line.substr(8, line.find('-')));*/
-                    date = line;
+                    day = std::stoi(line.substr(8, line.find("-")));
+                    month = std::stoi(line.substr(5, line.find("-")));
+                    year = std::stoi(line.substr(0, line.find("-")));
                     break;
                 case 1:
                     username = line;
@@ -211,7 +205,7 @@ void Application::Load()
                     break;
                 }
             }
-            //Date date(day, month, year);
+            Date* date = new Date(day, month, year);
             Player* player = new Player(username, password, date, credit);
             accounts.first()->users.addInFront(player);
         }
@@ -220,7 +214,6 @@ void Application::Load()
         int day;
         int month;
         int year;
-        std::string date;
         for (int i = 0; i < 3; i++) {
 
             getline(theFile, line);
@@ -229,10 +222,9 @@ void Application::Load()
             {
 
             case 0:
-                /*day = std::stoi(line.substr(0, line.find('-')));
-                month = std::stoi(line.substr(5, line.find('-')));
-                year = std::stoi(line.substr(8, line.find('-')));*/
-                date = line;
+                day = std::stoi(line.substr(8, line.find("-")));
+                month = std::stoi(line.substr(5, line.find("-")));
+                year = std::stoi(line.substr(0, line.find("-")));
                 break;
             case 1:
                 username = line;
@@ -248,7 +240,7 @@ void Application::Load()
                 break;
             }
         }
-        //Date date(day, month, year);
+        Date* date = new Date(day, month, year);
         Player* player = new Player(username, password, date, credit);
         accounts.first()->users.addInFront(player);
         }
