@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(const std::string& username, const std::string& password, const std::string& created, const int& credit)
+Player::Player(const std::string& username, const std::string& password, Date* created, const int& credit)
 	: User(username, password, created, credit)
 {
 }

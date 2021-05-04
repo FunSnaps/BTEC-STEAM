@@ -1,11 +1,12 @@
 #pragma once
 
 #include <string>
+#include "Date.h"
 
 class User
 {
 	public:
-		User(const std::string& username, const std::string& password, const std::string& created, const int&);
+		User(const std::string& username, const std::string& password, Date* created, const int&);
 		virtual ~User() = 0;
 		const std::string& GetUsername() const;
 		const bool& GetUserStatus() const;
@@ -14,6 +15,6 @@ class User
 		bool userStatus = false;
 		std::string username;
 		std::string password;
-		std::string created;  // TODO: replace with custom Date class, currently YYYY-MM-DD
+		Date* created;
 		const int credit;
 };
