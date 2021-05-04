@@ -12,7 +12,7 @@
 #include "Source.h"
 
 	// TODO: Remove from global scope once menu system is integrated
-	Application app;
+	
 
 /*void createHardcodedTestData()
 {
@@ -259,7 +259,7 @@
 
 void main()
 {
-	// TODO: Remove call to dummy data, instead use Load and Save
+	Application app;
 	//createHardcodedTestData();
 
 	//app.Load();

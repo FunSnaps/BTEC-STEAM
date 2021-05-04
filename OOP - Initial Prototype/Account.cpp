@@ -7,7 +7,7 @@ Account::Account(const std::string& email, const std::string& password, const Da
 
 Account::~Account()
 {
-	for (int i = 0; i < 3; ++i)
+	for (int i = 0; i < users.length(); ++i)
 	{
 		delete users[i];
 	}

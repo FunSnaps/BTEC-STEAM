@@ -1,5 +1,9 @@
 ﻿  Account.cpp
   Admin.cpp
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Admin.cpp(4,10): error C2664: 'Player::Player(const std::string &,const std::string &,const std::string &)': cannot convert argument 3 from 'const Date' to 'const std::string &'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Admin.cpp(5,1): message : Reason: cannot convert from 'const Date' to 'const std::string'
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Admin.cpp(4,31): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\Player.h(12,3): message : see declaration of 'Player::Player'
   Application.cpp
   Date.cpp
   Game.cpp
@@ -17,6 +21,8 @@
   Generating Code...
 E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<Game *>::operator[]': not all control paths return a value
 E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<Account *>::operator[]': not all control paths return a value
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<User *>::operator[]': not all control paths return a value
 E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<LibraryItem *>::operator[]': not all control paths return a value
 E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\LoginUserMenu.cpp(75): warning C4715: 'LoginUserMenu::HandleChoice': not all control paths return a value
-  OOP - Initial Prototype.vcxproj -> E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\x64\Debug\OOP - Initial Prototype.exe
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<User *>::operator[]': not all control paths return a value
+E:\Uni\UniDocs\Year2\OOP\Assignments & Projects\BTEC-STEAM\OOP - Initial Prototype\ListT.h(140): warning C4715: 'List<User *>::operator[]': not all control paths return a value
