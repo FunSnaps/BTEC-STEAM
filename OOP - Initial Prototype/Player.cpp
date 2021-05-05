@@ -12,3 +12,8 @@ Player::~Player()
 		delete library[i];
 	}
 }
+
+int Player::getCredit() const
+{
+	return credit;
+}
