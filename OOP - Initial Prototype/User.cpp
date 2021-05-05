@@ -1,7 +1,8 @@
 #include "User.h"
 
-User::User(const std::string& username, const std::string& password, Date* created, const int& credit)
-    : username(username), password(password), created(created), credit(credit)
+
+User::User(const std::string& username, const std::string& password, Date* created, const int& credit, bool userStatus)
+    : username(username), password(password), created(created), credit(credit), userStatus(userStatus)
 {
 }
 

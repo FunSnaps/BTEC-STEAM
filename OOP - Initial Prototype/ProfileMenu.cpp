@@ -8,16 +8,23 @@ ProfileMenu::ProfileMenu(const std::string& title, Application* app)
 
 void ProfileMenu::OutputOptions( )
 {
+		
 		// adding 1 so the display is nicer for the user
-		Option(1, "Account holder: " + app->GetAccount(1)->users[0]->GetUsername());
+		Line( "Account holder: " + app->GetCurrentAccount()->users[0]->GetUsername());
 		Line();
-		Option(2, "Username: " + app->GetCurrentAccount()->users[0]->GetUsername());
+		Line("Username: " + app->GetCurrentUser()->GetUsername());
 		Line();
-		/*for (int iter = 0; iter != app->GetCurrentUser()->library.size(); iter++) {
-			Option(3, app->GetCurrentUser()->library[iter]->getGame().GetName());
-		}*/
-}
+		Line("Owned Games");
+		for (iter = 0; iter != app->GetCurrentUser()->getLibraryItems().size(); iter++) {
+			Option(iter + 1, app->GetCurrentUser()->getLibraryItems().operator[](iter)->getGame().GetName());
+		}
 
+		if (app->GetCurrentUser()->GetUserStatus()) {
+			Line();
+			Option(iter + 1, "Add new user");
+			Option(iter + 2, "Remove user");
+		}
+}
 
 bool ProfileMenu::HandleChoice(char choice)
 {
@@ -26,10 +33,30 @@ bool ProfileMenu::HandleChoice(char choice)
 	// this reverses the + 1 above and lets us do the range check below
 	int index = choice - '1';
 
-	if (index >= 0 && index < 1)
+	if (index >= 0 && index < 10)
 	{
-		BlockingMessage("Not implemented, press return to continue");
-		// go to game detail page
+		for (int i = 0; i < iter; i++) {
+			if (i == index) {
+				BlockingMessage(app->GetCurrentUser()->getLibraryItems().operator[](i)->getGame().GetName());
+			}
+		}
+
+		if (index == (iter)) {
+			BlockingMessage("ADD");
+		}
+		/*else if (index == iter + 1) {
+			std::string temp = Question("Who would you like to remove?");
+			for (int j = 0; j < app->GetCurrentAccount()->users.length(); j++) {
+				if (temp == app->GetCurrentAccount()->users.operator[](j)->GetUsername()) {
+					std::string username = app->GetCurrentAccount()->users.operator[](j)->GetUsername();
+					std::string password = app->GetCurrentAccount()->users.operator[](j)->GetPassword;
+					Date* date = app->GetCurrentAccount()->users.operator[](j).GetCreated();
+					int credit = app->GetCurrentAccount()->users.operator[](j)->getCredit();
+					bool status = app->GetCurrentAccount()->users.operator[](j)->GetUserStatus();
+					app->GetCurrentAccount()->users.deleteOne(new Player(username, password, date, credit, status));
+				}
+			}
+		}*/
 	}
 
 	return false;
