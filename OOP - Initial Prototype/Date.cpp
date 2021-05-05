@@ -143,3 +143,15 @@ void Date::setDate(int dd, int mm, int yyyy)
 	month = mm;
 	year = yyyy;
 }
+
+#pragma warning(disable : 4996)
+Date* Date::CurrentDate() {
+
+	time_t now = time(0);
+	tm* ltm = localtime(&now);
+	int year = 1900 + ltm->tm_year;
+	int month = 1 + ltm->tm_mon;
+	int day = ltm->tm_mday;
+	Date* date = new Date(day, month, year);
+	return date;
+}

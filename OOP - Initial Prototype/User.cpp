@@ -21,7 +21,15 @@ const bool& User::GetUserStatus() const
     return userStatus;
 }
 
-const int& User::getCredit() const
+const int& User::GetCredit() const
 {
     return credit;
+}
+
+const std::string& User::GetPassword() const {
+    return password;
+}
+
+Date* User::GetCreated() const{
+    return created;
 }
