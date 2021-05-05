@@ -9,9 +9,9 @@ Date::Date(int dd, int mm, int yyyy) : day(dd), month(mm), year(yyyy)
 	assert(isValid()); //check that date is valid
 }
 
-Date::Date(const Date&d) : day(d.day), month(d.month), year(d.year) // copy constructor
+Date::Date(const Date& d) : day(d.day), month(d.month), year(d.year) // copy constructor
 {
-	
+
 }
 
 Date::~Date()
@@ -131,7 +131,7 @@ bool Date::operator!=(const Date& other) const //is different
 
 bool Date::isValid() const
 {
-	if (day > 0 && day <= 31 && month > 0 && month <= 12 && year > 0 && year <= 2030) {
+	if ((day > 0 && day <= 31) && (month > 0 && month <= 12) && (year > 0 && year <= 2030)) {
 		return true;
 	}
 	return false;

@@ -1,14 +1,14 @@
 #include "Account.h"
 
-Account::Account(const std::string& email, const std::string& password, const std::string& created)
+Account::Account(const std::string& email, const std::string& password, Date* created)
 	: email(email), password(password), created(created)
 {
 }
 
 Account::~Account()
 {
-	for (int i = 0; i < 3; ++i)
+	for (int i = 0; i < users.length(); ++i)
 	{
-		delete users[i];
+		users.deleteFirst();
 	}
 }

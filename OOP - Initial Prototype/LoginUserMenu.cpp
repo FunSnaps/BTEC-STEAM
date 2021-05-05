@@ -11,7 +11,7 @@ void LoginUserMenu::OutputOptions()
     for (int i = 0; i < 3; i++)
     {
         // adding 1 so the display is nicer for the user
-        Option(i + 1, app->GetCurrentAccount()->users[i]->GetUsername());
+        Option(i + 1, app->GetCurrentAccount()->users.operator[](i)->GetUsername());
     }
 }
 
@@ -29,15 +29,14 @@ bool LoginUserMenu::HandleChoice(char choice)
             
             if (index >= 0 && index < 3) // TODO: Hardcoded numbers, change when using List<T>
             {
-                std::string username = app->GetCurrentAccount()->users[index]->GetUsername();
+                std::string username = app->GetCurrentAccount()->users.operator[](index)->GetUsername();
 
                 std::cout << "  Enter password for " << username << ": ";
-                if (app->LoginUser(username, Utils::getLineFromUser()))
+                if (app->LoginUser(username, Utils::getLineFromUser(), index))
                 {
                     return true;
                 }
-            }
-            				
+            }	
         }
         case '2': {
             int index = choice - '1';
@@ -47,7 +46,7 @@ bool LoginUserMenu::HandleChoice(char choice)
                 std::string username = app->GetCurrentAccount()->users[index]->GetUsername();
 
                 std::cout << "  Enter password for " << username << ": ";
-                if (app->LoginUser(username, Utils::getLineFromUser()))
+                if (app->LoginUser(username, Utils::getLineFromUser(), index))
                 {
                     return true;
                 }
@@ -61,7 +60,7 @@ bool LoginUserMenu::HandleChoice(char choice)
                 std::string username = app->GetCurrentAccount()->users[index]->GetUsername();
 
                 std::cout << "  Enter password for " << username << ": ";
-                if (app->LoginUser(username, Utils::getLineFromUser()))
+                if (app->LoginUser(username, Utils::getLineFromUser(), index))
                 {
                     return true;
                 }

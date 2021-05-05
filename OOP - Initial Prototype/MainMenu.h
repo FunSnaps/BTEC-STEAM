@@ -11,7 +11,4 @@ public:
 	MainMenu(const std::string& title, Application* app);
 	void OutputOptions() final;
 	bool HandleChoice(char choice) final;
-
-private:
-	void userProfile();
 };

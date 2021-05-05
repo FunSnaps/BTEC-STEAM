@@ -10,14 +10,9 @@ StoreMenu::StoreMenu(const std::string& title, Application* app) : Menu(title, a
 
 void StoreMenu::OutputOptions()
 {
-    /*for (int i = 0; i < games.size() - 4; i++)
+    for (int i = 0; i < app->GetStore().GetGames().length(); i++)
     {
-        Option(i + 1, games[i]);
-    }*/
-
-    for (int i = 0; i < games.size(); i++)
-    {
-        Option(i + 1, games[i]);
+        Option(i + 1, app->GetStore().getIndex(i).GetName());
     }
 
     Line();
@@ -33,9 +28,9 @@ bool StoreMenu::HandleChoice(char choice)
     // this reverses the + 1 above and lets us do the range check below
     int index = choice - '1';
 
-    if (index >= 0 && index < games.size())
+    if (index >= 0 && index < app->GetStore().GetGames().length())
     {
-        BlockingMessage("TO BE DONE AFTER DATA LOADING ");
+        BlockingMessage("TO BE DONE AFTER DATA LOADING");
         // go to game detail page
     }
 
@@ -43,9 +38,9 @@ bool StoreMenu::HandleChoice(char choice)
     case 'N':
     {
         system("CLS");
-        for (int i = 5; i < games.size(); i++)
+        for (int i = 5; i < app->GetStore().GetGames().length(); i++)
         {
-            Option(i + 1, games[i]);
+            Option(i + 1, app->GetStore().getIndex(i).GetName());
         }
         Utils::getCharFromUser();
 

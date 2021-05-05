@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Menu.h"
+#include "ListT.h"
 #include "StoreMenu.h"
 #include "MainMenu.h"
 
@@ -11,6 +12,6 @@ public:
     void OutputOptions() final;
     bool HandleChoice(char choice) final;
 private:
-    std::vector<std::string> users = {};
+    //List<std::string> users;
 };
 

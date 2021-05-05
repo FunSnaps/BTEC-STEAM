@@ -1,8 +1,12 @@
 #pragma once
 
 #include <string>
+#include <iostream>
+#include <vector>
 #include "LibraryItem.h"
 #include "User.h"
+#include "ListT.h"
+#include "Date.h"
 
 class Player : public User
 {
@@ -12,8 +16,10 @@ class Player : public User
 		~Player();
 		//query
 		int getCredit() const;
-		//library of games
-		LibraryItem* library[2] = { }; // TODO: replace with custom List<T> class
+	
+    void addLibraryItem(LibraryItem* item);
+		std::vector<LibraryItem*> getLibraryItems() const;
 	private:
 		int credit = 1000;
+    std::vector<LibraryItem*> library;
 };

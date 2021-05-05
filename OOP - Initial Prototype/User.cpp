@@ -1,12 +1,14 @@
 #include "User.h"
 
-User::User(const std::string& username, const std::string& password, const std::string& created)
-    : username(username), password(password), created(created)
+
+User::User(const std::string& username, const std::string& password, Date* created, const int& credit, bool userStatus)
+    : username(username), password(password), created(created), credit(credit), userStatus(userStatus)
 {
 }
 
 User::~User()
 {
+
 }
 
 const std::string& User::GetUsername() const
@@ -17,4 +19,9 @@ const std::string& User::GetUsername() const
 const bool& User::GetUserStatus() const
 {
     return userStatus;
+}
+
+const int& User::getCredit() const
+{
+    return credit;
 }
