@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "StoreMenu.h"
+#include "GameBuyMenu.h"
 
 #include <string>
 
@@ -30,8 +31,9 @@ bool StoreMenu::HandleChoice(char choice)
 
     if (index >= 0 && index < app->GetStore().GetGames().length())
     {
-        BlockingMessage("TO BE DONE AFTER DATA LOADING");
         // go to game detail page
+        std::string name = app->GetStore().getIndex(index).GetName();
+        GameBuyMenu(name, app, index);
     }
 
     switch (choice) {
