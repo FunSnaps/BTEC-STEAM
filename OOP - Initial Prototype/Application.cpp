@@ -48,10 +48,11 @@ bool Application::LoginAccount(const std::string& email, const std::string& pass
     return true;
 }
 
-bool Application::LoginUser(const std::string& username, const std::string& password)
+bool Application::LoginUser(const std::string& username, const std::string& password, int& index)
 {
+    
     // TODO: This currently always logs you in as the first user
-    currentUser = currentAccount->users[0];
+    currentUser = currentAccount->users[index];
 
     return true;
 }
@@ -61,13 +62,13 @@ void Application::LogoutUser()
     currentUser = nullptr;
 }
 
-Account* Application::GetAccount(const int& index) const
-{
-    if (!(accounts.isEmpty() && accounts.length() < index))
-    {
-        return accounts.first();
-    }
-}
+//Account* Application::GetAccount(const int& index) const
+//{
+//    if (!(accounts.isEmpty() && accounts.length() < index))
+//    {
+//        return accounts.first();
+//    }
+//}
 
 void Application::addAccount(Account* account)
 {
@@ -151,6 +152,7 @@ void Application::Load()
             }
             Date* date = new Date(day, month, year);
             accounts.addInFront(new Account(email, password, date));
+            LoginAccount(email, password);
         }
         else if (line == "LIBRARY-ITEM") {
             int id, day, month, year, playTime;
@@ -206,7 +208,7 @@ void Application::Load()
                 }
             }
             Date* date = new Date(day, month, year);
-            Player* player = new Player(username, password, date, credit);
+            Player* player = new Player(username, password, date, credit, false);
             accounts.first()->users.addInFront(player);
         }
         else if (line == "ACCOUNT-ADMIN")
@@ -241,7 +243,7 @@ void Application::Load()
             }
         }
         Date* date = new Date(day, month, year);
-        Player* player = new Player(username, password, date, credit);
+        Player* player = new Admin(username, password, date, credit, true);
         accounts.first()->users.addInFront(player);
         }
     }

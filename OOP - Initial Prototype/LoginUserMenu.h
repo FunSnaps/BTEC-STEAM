@@ -12,7 +12,6 @@ public:
     void OutputOptions() final;
     bool HandleChoice(char choice) final;
 private:
-    List<std::string> users;
-    //std::vector<std::string> users = {};
+    //List<std::string> users;
 };
 
