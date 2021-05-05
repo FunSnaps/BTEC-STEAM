@@ -1,6 +1,8 @@
 #pragma once
 #include "Menu.h"
+#include "Date.h"
 #include<iostream>
+#include <algorithm>
 
 class ProfileMenu :
     public Menu
@@ -12,6 +14,9 @@ public:
     bool HandleChoice(char choice);
 
 private:
-    int iter = 0;
+    Date* d;
+    int iter;
+    void sortResults();
+    bool sort() const;
 };
 

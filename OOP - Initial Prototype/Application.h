@@ -31,8 +31,8 @@ class Application
 		void LogoutUser();
 		void addAccount(Account* account);
 
-		void Load();
-		void Save();
+		bool Load();
+		bool Save();
 		
 
 

@@ -11,6 +11,6 @@ public:
     void OutputOptions() final;
     bool HandleChoice(char choice) final;
 private:
-    List<std::string> games;
+    //List<std::string> games;
     //std::vector<std::string> games;
 };

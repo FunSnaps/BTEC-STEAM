@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-Menu::Menu(const std::string& title, Application* app) 
+Menu::Menu(const std::string& title, Application* app)
     : title(title), app(app)
 {
 }
@@ -52,6 +52,19 @@ void Menu::Line(const std::string& text)
 void Menu::Option(const char& id, const std::string& option)
 {
     std::cout << "  " << id << ") " << option << '\n';
+}
+
+void Menu::Option(const int& cost)
+{
+    std::string tempString = std::to_string(cost);
+    std::string pounds = tempString.substr(0, 2);
+    std::string pence = tempString.substr(2, 2);
+    std::cout << "  " << "Cost:" << pounds << "." << pence << '\n';
+}
+
+void Menu::Option(const std::string& text)
+{
+    std::cout << "  " << "Info:" << text << '\n';
 }
 
 void Menu::Option(const int& id, const std::string& option)

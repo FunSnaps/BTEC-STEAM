@@ -12,7 +12,9 @@ class Player : public User
 {
 	public:
 		//constructors + destructor
+
 		Player(const std::string&, const std::string&, Date*, const int&, bool);
+
 		~Player();
 		//query
 		int getCredit() const;

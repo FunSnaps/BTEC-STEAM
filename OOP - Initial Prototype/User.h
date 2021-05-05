@@ -10,7 +10,9 @@ class User
 		virtual ~User() = 0;
 		const std::string& GetUsername() const;
 		const bool& GetUserStatus() const;
-		const int& getCredit() const;
+		const int& GetCredit() const;
+		const std::string& GetPassword() const;
+		Date* GetCreated() const;
 	private:
 		bool userStatus = false;
 		std::string username;
