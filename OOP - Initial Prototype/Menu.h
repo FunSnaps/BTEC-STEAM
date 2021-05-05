@@ -25,8 +25,12 @@ protected:
     Application* app;                                           // each menu will store a pointer to the main application
                                                                 // this way menus can access all the data required
 
-    void Line();										        // output blank line
-    void Line(const std::string& text);					        // output a message
+
+    void Option(const int& const);
+    void Option(const std::string& text);
+    void Line();										// output blank line
+    void Line(const std::string& text);					// output a message
+
     void Option(const int& id, const std::string& option);		// output menu option
     void Option(const char& id, const std::string& option);	    // output menu option
     void Option(const int& cost);                               // output menu option int

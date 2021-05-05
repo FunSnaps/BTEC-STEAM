@@ -12,14 +12,17 @@ class Player : public User
 {
 	public:
 		//constructors + destructor
-		Player(const std::string& username, const std::string& password, Date* created, const int& credit, bool userStatus);
+
+		Player(const std::string&, const std::string&, Date*, const int&, bool);
+
 		~Player();
 		//query
 		int getCredit() const;
-	
-    void addLibraryItem(LibraryItem* item);
 		std::vector<LibraryItem*> getLibraryItems() const;
+		//mutate
+		void addLibraryItem(LibraryItem* item);
+		void buyGame(int cost);
 	private:
-		int credit = 1000;
-    std::vector<LibraryItem*> library;
+		int credit = 3000;
+		std::vector<LibraryItem*> library;
 };

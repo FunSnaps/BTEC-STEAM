@@ -29,6 +29,15 @@ void Menu::Paint()
         }
     }
 }
+void Menu::Option(const int& text)
+{
+    std::cout << "  " << text << "\n";
+}
+
+void Menu::Option(const std::string& text)
+{
+    std::cout << "  " << text << "\n";
+}
 
 void Menu::Line()
 {

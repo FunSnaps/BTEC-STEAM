@@ -1,6 +1,8 @@
 #include "Menu.h"
 #include "StoreMenu.h"
+#include "GameBuyMenu.h"
 #include "GameInfoMenu.h"
+
 #include <string>
 
 StoreMenu::StoreMenu(const std::string& title, Application* app) : Menu(title, app)
@@ -30,8 +32,16 @@ bool StoreMenu::HandleChoice(char choice)
 
     if (index >= 0 && index < app->GetStore().GetGames().length() / 2 + 1)
     {
+
+        // go to game detail page
+  if(app->IsUserLoggedIn()){
+        std::string name = app->GetStore().getIndex(index).GetName();
+        GameBuyMenu(name, app, index);
+  }else{
         std::string temp = app->GetStore().getIndex(index).GetName();
         GameInfoMenu(temp, app, index);
+  }
+
     }
 
     switch (choice) {
