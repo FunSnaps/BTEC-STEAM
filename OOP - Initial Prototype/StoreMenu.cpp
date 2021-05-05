@@ -1,6 +1,6 @@
 #include "Menu.h"
 #include "StoreMenu.h"
-
+#include "GameInfoMenu.h"
 #include <string>
 
 StoreMenu::StoreMenu(const std::string& title, Application* app) : Menu(title, app)
@@ -10,7 +10,7 @@ StoreMenu::StoreMenu(const std::string& title, Application* app) : Menu(title, a
 
 void StoreMenu::OutputOptions()
 {
-    for (int i = 0; i < app->GetStore().GetGames().length(); i++)
+    for (int i = 0; i < app->GetStore().GetGames().length() / 2 + 1; i++)
     {
         Option(i + 1, app->GetStore().getIndex(i).GetName());
     }
@@ -28,22 +28,16 @@ bool StoreMenu::HandleChoice(char choice)
     // this reverses the + 1 above and lets us do the range check below
     int index = choice - '1';
 
-    if (index >= 0 && index < app->GetStore().GetGames().length())
+    if (index >= 0 && index < app->GetStore().GetGames().length() / 2 + 1)
     {
-        BlockingMessage("TO BE DONE AFTER DATA LOADING");
-        // go to game detail page
+        std::string temp = app->GetStore().getIndex(index).GetName();
+        GameInfoMenu(temp, app, index);
     }
 
     switch (choice) {
     case 'N':
-    {
-        system("CLS");
-        for (int i = 5; i < app->GetStore().GetGames().length(); i++)
-        {
-            Option(i + 1, app->GetStore().getIndex(i).GetName());
-        }
-        Utils::getCharFromUser();
-
+    {   
+        GameInfoMenu("STORE", app, 6);
     } break;
     case 'S':
     {

@@ -1,17 +1,17 @@
 #include "Application.h"
 
-Application::Application() 
-	: currentAccount(nullptr), currentUser(nullptr)
+Application::Application()
+    : currentAccount(nullptr), currentUser(nullptr)
 {
 }
 
 Application::~Application()
 {
 
-	for (int i = 0; i < 1; ++i)
-	{
-		accounts.deleteFirst();
-	}
+    for (int i = 0; i < 1; ++i)
+    {
+        accounts.deleteFirst();
+    }
 }
 
 bool Application::IsUserLoggedIn() const
@@ -42,15 +42,15 @@ Store& Application::GetStore()
 bool Application::LoginAccount(const std::string& email, const std::string& password)
 {
 
-	// TODO: This currently always logs you in as the first account
-	currentAccount = accounts.first();
+    // TODO: This currently always logs you in as the first account
+    currentAccount = accounts.first();
 
     return true;
 }
 
 bool Application::LoginUser(const std::string& username, const std::string& password, int& index)
 {
-    
+
     // TODO: This currently always logs you in as the first user
     currentUser = currentAccount->users[index];
 
@@ -75,180 +75,242 @@ void Application::addAccount(Account* account)
     this->accounts.addInFront(account);
 }
 
-void Application::Load() 
+bool Application::Load()
 {
-    std::ifstream theFile("data.txt");
-    std::string line;
 
-    std::string email = " ";
-    std::string username = " ";
-    std::string password = " ";
-    int credit;
-
-    while (getline(theFile, line)) {
-        if (line == "GAME") {
-            int id;
-            std::string name;
-            std::string description;
-            int cost;
-            int ageRating;
-            int likes;
-            int dislikes;
-
-            for (int i = 0; i < 5; i++) {
-                getline(theFile, line);
-                switch (i) {
-                case 0: 
-                    id = std::stoi(line);
-                    break;
-                case 1:
-                    name = line;
-                    break;
-                case 2:
-                    description = line;
-                    break;
-                case 3:
-                    cost = std::stoi(line);
-                    break;
-                case 4:
-                    ageRating = std::stoi(line);
-                    break;
-                case 5:
-                    //likes = std::stoi(line);
-                    break;
-                case 6:
-                    //dislikes = std::stoi(line);
-                    break;
-                default:
-                    break;
-                }
-            }
-            GetStore().addGame(new Game(name, description, cost, ageRating));
-        }
-        else if (line == "ACCOUNT")
+    try
+    {
+        std::ifstream theFile("data.txt");
+        if (theFile.is_open())
         {
-            int day, month, year;
 
-            for (int i = 0; i < 3; i++)
-            {
-                getline(theFile, line);
-                switch (i)
+            std::string line;
+
+            std::string email = " ";
+            std::string username = " ";
+            std::string password = " ";
+            int credit;
+
+            while (getline(theFile, line)) {
+                if (line == "GAME") {
+                    int id;
+                    std::string name;
+                    std::string description;
+                    int cost;
+                    int ageRating;
+                    int likes;
+                    int dislikes;
+
+                    for (int i = 0; i < 5; i++) {
+                        getline(theFile, line);
+                        switch (i) {
+                        case 0:
+                            id = std::stoi(line);
+                            break;
+                        case 1:
+                            name = line;
+                            break;
+                        case 2:
+                            description = line;
+                            break;
+                        case 3:
+                            cost = std::stoi(line);
+                            break;
+                        case 4:
+                            ageRating = std::stoi(line);
+                            break;
+                        case 5:
+                            //likes = std::stoi(line);
+                            break;
+                        case 6:
+                            //dislikes = std::stoi(line);
+                            break;
+                        default:
+                            return false;
+                            break;
+                        }
+                    }
+                    GetStore().addGame(new Game(name, description, cost, ageRating));
+                }
+                else if (line == "ACCOUNT")
                 {
-                case 0:
-                    day = std::stoi(line.substr(8, line.find("-")));
-                    month = std::stoi(line.substr(5, line.find("-")));
-                    year = std::stoi(line.substr(0, line.find("-")));
-                    break;
-                case 1:
-                    email = line;
-                    break;
-                case 2:
-                    password = line;
-                    break;
-                default:
-                    //return false;
-                    break;
-                }
-            }
-            Date* date = new Date(day, month, year);
-            accounts.addInFront(new Account(email, password, date));
-            LoginAccount(email, password);
-        }
-        else if (line == "LIBRARY-ITEM") {
-            int id, day, month, year, playTime;
+                    int day, month, year;
 
-            for (int i = 0; i < 3; i++) {
-                getline(theFile, line);
-                switch (i) {
-                case 0:
-                    id = std::stoi(line);
-                    break;
-                case 1:
-                    day = std::stoi(line.substr(8, line.find("-")));
-                    month = std::stoi(line.substr(5, line.find("-")));
-                    year = std::stoi(line.substr(0, line.find("-")));
-                    break;
-                case 2:
-                    playTime = std::stoi(line);
-                    break;
-                default:
-                    break;
+                    for (int i = 0; i < 3; i++)
+                    {
+                        getline(theFile, line);
+                        switch (i)
+                        {
+                        case 0:
+                            day = std::stoi(line.substr(8, line.find("-")));
+                            month = std::stoi(line.substr(5, line.find("-")));
+                            year = std::stoi(line.substr(0, line.find("-")));
+                            break;
+                        case 1:
+                            email = line;
+                            break;
+                        case 2:
+                            password = line;
+                            break;
+                        default:
+                            return false;
+                            break;
+                        }
+                    }
+                    Date* date = new Date(day, month, year);
+                    accounts.addInFront(new Account(email, password, date));
+                    LoginAccount(email, password);
                 }
-            }
-            Date* date = new Date(day, month, year);
-            Player* user = dynamic_cast<Player*>(accounts.first()->users.first());
-            Game game = Game(GetStore().getIndex(id));
-            LibraryItem* item = new LibraryItem(date, game);
-            user->addLibraryItem(item);
-        }
-        else if (line == "ACCOUNT-PLAYER")
-        {
-            int day, month, year;
-            for (int i = 0; i < 4; i++) {
-                getline(theFile, line);
-                switch (i)
+                else if (line == "LIBRARY-ITEM") {
+                    int id, day, month, year, playTime;
+
+                    for (int i = 0; i < 3; i++) {
+                        getline(theFile, line);
+                        switch (i) {
+                        case 0:
+                            id = std::stoi(line);
+                            break;
+                        case 1:
+                            day = std::stoi(line.substr(8, line.find("-")));
+                            month = std::stoi(line.substr(5, line.find("-")));
+                            year = std::stoi(line.substr(0, line.find("-")));
+                            break;
+                        case 2:
+                            playTime = std::stoi(line);
+                            break;
+                        default:
+                            return false;
+                            break;
+                        }
+                    }
+                    Date* date = new Date(day, month, year);
+                    Player* user = dynamic_cast<Player*>(accounts.first()->users.first());
+                    Game game = Game(GetStore().getIndex(id));
+                    LibraryItem* item = new LibraryItem(date, game);
+                    user->addLibraryItem(item);
+                }
+                else if (line == "ACCOUNT-PLAYER")
                 {
-                case 0:
-                    day = std::stoi(line.substr(8, line.find("-")));
-                    month = std::stoi(line.substr(5, line.find("-")));
-                    year = std::stoi(line.substr(0, line.find("-")));
-                    break;
-                case 1:
-                    username = line;
-                    break;
-                case 2:
-                    password = line;
-                    break;
-                case 3:
-                    credit = std::stoi(line);
-                    break;
-                default:
-                    //return false;
-                    break;
+                    int day, month, year;
+                    for (int i = 0; i < 4; i++) {
+                        getline(theFile, line);
+                        switch (i)
+                        {
+                        case 0:
+                            day = std::stoi(line.substr(8, line.find("-")));
+                            month = std::stoi(line.substr(5, line.find("-")));
+                            year = std::stoi(line.substr(0, line.find("-")));
+                            break;
+                        case 1:
+                            username = line;
+                            break;
+                        case 2:
+                            password = line;
+                            break;
+                        case 3:
+                            credit = std::stoi(line);
+                            break;
+                        default:
+                            return false;
+                            break;
+                        }
+                    }
+                    Date* date = new Date(day, month, year);
+                    Player* player = new Player(username, password, date, credit, false);
+                    accounts.first()->users.addInFront(player);
+                }
+                else if (line == "ACCOUNT-ADMIN")
+                {
+                    int day;
+                    int month;
+                    int year;
+                    for (int i = 0; i < 3; i++) {
+
+                        getline(theFile, line);
+
+                        switch (i)
+                        {
+
+                        case 0:
+                            day = std::stoi(line.substr(8, line.find("-")));
+                            month = std::stoi(line.substr(5, line.find("-")));
+                            year = std::stoi(line.substr(0, line.find("-")));
+                            break;
+                        case 1:
+                            username = line;
+                            break;
+                        case 2:
+                            password = line;
+                            break;
+                        case 3:
+                            credit = std::stoi(line);
+                            break;
+                        default:
+                            return false;
+                            break;
+                        }
+                    }
+                    Date* date = new Date(day, month, year);
+                    Player* player = new Admin(username, password, date, credit, true);
+                    accounts.first()->users.addInFront(player);
                 }
             }
-            Date* date = new Date(day, month, year);
-            Player* player = new Player(username, password, date, credit, false);
-            accounts.first()->users.addInFront(player);
-        }
-        else if (line == "ACCOUNT-ADMIN")
-        {
-        int day;
-        int month;
-        int year;
-        for (int i = 0; i < 3; i++) {
-
-            getline(theFile, line);
-
-            switch (i)
-            {
-
-            case 0:
-                day = std::stoi(line.substr(8, line.find("-")));
-                month = std::stoi(line.substr(5, line.find("-")));
-                year = std::stoi(line.substr(0, line.find("-")));
-                break;
-            case 1:
-                username = line;
-                break;
-            case 2:
-                password = line;
-                break;
-            case 3:
-                credit = std::stoi(line);
-                break;
-            default:
-                //return false;
-                break;
-            }
-        }
-        Date* date = new Date(day, month, year);
-        Player* player = new Admin(username, password, date, credit, true);
-        accounts.first()->users.addInFront(player);
+            theFile.close();
+            return true;
         }
     }
-        theFile.close();
+    catch (const std::exception&) // <---
+    {
+        return false;
+    }
+
 }
-void Application::Save()
+bool Application::Save()
 {
+    //try {
+
+       //    std::ofstream data;
+       //    data.open("sData.txt", std::fstream::out | std::fstream::trunc);
+
+       //    if (data.is_open()) {
+
+       //        List<Game*> games = GetStore().GetGames();
+
+       //        for (int i = 0; i < games.length(); i++) {
+       //            data << "GAME" << std::endl;
+       //            data << i + 1 << std::endl;
+       //            data << games[i]->GetName() << std::endl;
+       //            data << games[i]->GetDescription() << std::endl;
+       //            data << 0 << std::endl;
+       //            data << games[i]->GetCost() << std::endl;
+       //        }
+
+       //        for (int i = 0; i < accounts.length(); i++) {
+       //            data << "ACCOUNT" << std::endl;
+       //            for (int y = 0; y < accounts[i]->users.length();y++) {
+       //                /*
+       //                if (accounts[i]->users) {
+       //                    data << "ACCOUNT-PLAYER" << std::endl;
+       //                }
+       //                else
+       //                {
+       //                    data << "ACCOUNT-ADMIN" << std::endl;
+       //                }
+       //                data << accounts[i]->users[y]->GetUsername() << std::endl;
+       //                data << accounts[i]->users[y]->GetUsername() << std::endl;
+       //                */
+
+       //            }
+
+       //        }
+
+       //    }
+
+       //    data.close();
+
+       //}
+       //catch (...) {
+
+       //}
+    return false;
 }

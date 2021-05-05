@@ -22,15 +22,17 @@ public:
     virtual bool HandleChoice(char) = 0;
 
 protected:
-    Application* app;                                   // each menu will store a pointer to the main application
-                                                        // this way menus can access all the data required
+    Application* app;                                           // each menu will store a pointer to the main application
+                                                                // this way menus can access all the data required
 
-    void Line();										// output blank line
-    void Line(const std::string& text);					// output a message
+    void Line();										        // output blank line
+    void Line(const std::string& text);					        // output a message
     void Option(const int& id, const std::string& option);		// output menu option
-    void Option(const char& id, const std::string& option);	// output menu option
-    std::string Question(const std::string& question);	// output a question and return the user's input
-    void BlockingMessage(const std::string& message);	// output message and wait for the user to press enter
+    void Option(const char& id, const std::string& option);	    // output menu option
+    void Option(const int& cost);                               // output menu option int
+    void Option(const std::string& text);
+    std::string Question(const std::string& question);	        // output a question and return the user's input
+    void BlockingMessage(const std::string& message);	        // output message and wait for the user to press enter
 
 private:
     std::string title;
