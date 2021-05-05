@@ -29,7 +29,7 @@ void Menu::Paint()
         }
     }
 }
-void Menu::Option(const int& text)
+void Menu::printInt(const int& text)
 {
     std::cout << "  " << text << "\n";
 }
@@ -60,11 +60,6 @@ void Menu::Option(const int& cost)
     std::string pounds = tempString.substr(0, 2);
     std::string pence = tempString.substr(2, 2);
     std::cout << "  " << "Cost:" << pounds << "." << pence << '\n';
-}
-
-void Menu::Option(const std::string& text)
-{
-    std::cout << "  " << "Info:" << text << '\n';
 }
 
 void Menu::Option(const int& id, const std::string& option)

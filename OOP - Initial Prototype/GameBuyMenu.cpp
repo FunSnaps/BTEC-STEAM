@@ -10,10 +10,10 @@ void GameBuyMenu::OutputOptions()
     Option(app->GetStore().getIndex(index).GetDescription());
     Line();
     Option("Cost - ");
-    Option(app->GetStore().getIndex(index).GetCost());
+    printInt(app->GetStore().getIndex(index).GetCost());
     Line();
     Option("Current Credit - ");
-    Option(app->GetCurrentUser()->getCredit());
+    printInt(app->GetCurrentUser()->getCredit());
     Line();
     Line();
     Option("P) Purchase Game");
@@ -42,18 +42,15 @@ bool GameBuyMenu::HandleChoice(char choice)
         Line();
         Line();
         Option("Your new credit is - ");
-        Option(app->GetCurrentUser()->getCredit());
+        printInt(app->GetCurrentUser()->getCredit());
         Line();
         Line();
         Option("B) Back");
 
         Utils::getCharFromUser();
+        return true;
 
     } break;
-    case 'B':
-    {
-        BlockingMessage("SEARCH PAGE");
-    }
     default:
         break;
     }

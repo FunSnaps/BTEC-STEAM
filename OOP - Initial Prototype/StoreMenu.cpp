@@ -34,13 +34,13 @@ bool StoreMenu::HandleChoice(char choice)
     {
 
         // go to game detail page
-  if(app->IsUserLoggedIn()){
-        std::string name = app->GetStore().getIndex(index).GetName();
-        GameBuyMenu(name, app, index);
-  }else{
+        if(app->IsUserLoggedIn()){
+            std::string name = app->GetStore().getIndex(index).GetName();
+            GameBuyMenu(name, app, index);
+        }else{
         std::string temp = app->GetStore().getIndex(index).GetName();
         GameInfoMenu(temp, app, index);
-  }
+             }
 
     }
 
