@@ -12,7 +12,7 @@ class Player : public User
 {
 	public:
 		//constructors + destructor
-		Player(const std::string&, const std::string&, const std::string&);
+		Player(const std::string& username, const std::string& password, Date* created, const int& credit, bool userStatus);
 		~Player();
 		//query
 		int getCredit() const;
