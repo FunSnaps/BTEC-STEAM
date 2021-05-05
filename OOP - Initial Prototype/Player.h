@@ -11,11 +11,15 @@
 class Player : public User
 {
 	public:
-		Player(const std::string&, const std::string&, Date*, const int&, bool);
+		//constructors + destructor
+		Player(const std::string&, const std::string&, const std::string&);
 		~Player();
-		
-		void addLibraryItem(LibraryItem* item);
+		//query
+		int getCredit() const;
+	
+    void addLibraryItem(LibraryItem* item);
 		std::vector<LibraryItem*> getLibraryItems() const;
 	private:
-		std::vector<LibraryItem*> library;
+		int credit = 1000;
+    std::vector<LibraryItem*> library;
 };

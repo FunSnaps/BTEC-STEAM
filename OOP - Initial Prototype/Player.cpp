@@ -14,6 +14,11 @@ Player::~Player()
 	}
 }
 
+
+int Player::getCredit() const
+{
+	return credit;
+}
 void Player::addLibraryItem(LibraryItem* item)
 {
 	library.push_back(item);
@@ -22,3 +27,4 @@ void Player::addLibraryItem(LibraryItem* item)
 std::vector<LibraryItem*> Player::getLibraryItems() const {
 	return library;
 }
+
