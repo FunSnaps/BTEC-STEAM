@@ -86,3 +86,8 @@ void Menu::Footer()
     std::cout << '\n';
     std::cout << "  >>> ";
 }
+
+void Menu::printInt(const int& text)
+{
+    std::cout << "  " << text << "\n";
+}

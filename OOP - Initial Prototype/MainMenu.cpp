@@ -9,15 +9,19 @@ MainMenu::MainMenu(const std::string& title, Application* app)
 void MainMenu::OutputOptions()
 {
 	Option('S', "Browse Store");
+	if (app->IsAccountLoggedIn() && !app->IsUserLoggedIn()) {
 
-	if (app->IsUserLoggedIn())
+		Option('L', "User Login");
+		Option('A', "Logout");
+	}
+	else if (app->IsUserLoggedIn())
 	{
 		Option('P', "View Profile");
 		Option('L', "Logout");
 	}
 	else
 	{
-		Option('L', "Login");
+		Option('A', "Account Login");
 	}
 }
 
@@ -41,6 +45,7 @@ bool MainMenu::HandleChoice(char choice)
 		}
 		else
 		{
+			
 			LoginUserMenu("Login Menu", app);
 		}
 	} break;
@@ -48,9 +53,22 @@ bool MainMenu::HandleChoice(char choice)
 	{
 		if (app->IsUserLoggedIn())
 		{
-			ProfileMenu("Profile Menu", app);
+			ProfileMenu("PROFILE MENU", app);
 		}
 	} break;
+	case 'A':
+	{
+		if (app->IsAccountLoggedIn()) {
+			std::string answer = Question("Are you sure?");
+			if (answer == "y" || answer == "Y")
+			{
+				app->LogoutAccount();
+			}
+		}
+		else {
+			LoginAccountMenu("ACCOUNT LOGIN", app);
+		}
+	}
 	}
 
 	return false;

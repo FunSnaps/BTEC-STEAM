@@ -16,6 +16,8 @@ class Player : public User
 		
 		void addLibraryItem(LibraryItem* item);
 		std::vector<LibraryItem*> getLibraryItems() const;
+		void addCredit(int add);
 	private:
+		int credit = 1000;
 		std::vector<LibraryItem*> library;
 };

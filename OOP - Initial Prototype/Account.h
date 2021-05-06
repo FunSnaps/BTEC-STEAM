@@ -10,6 +10,8 @@ class Account
 		Account(const std::string&, const std::string&, /*const std::string&*/ Date* );
 		~Account();
 		List<Player*> users;
+		std::string& GetEmail();
+		std::string& GetPassword();
 	private:
 		std::string email;
 		std::string password;

@@ -12,3 +12,11 @@ Account::~Account()
 		users.deleteFirst();
 	}
 }
+
+std::string& Account::GetEmail() {
+	return email;
+}
+
+std::string& Account::GetPassword() {
+	return password;
+}

@@ -24,11 +24,12 @@ class Application
 		Player* GetCurrentUser() const;
 
 		Store& GetStore();
-		//Account* GetAccount(const int& index) const;
+		List<Account*> GetAccounts() const;
 
-		bool LoginAccount(const std::string& email, const std::string& password);
+		bool LoginAccount(const std::string& email, const std::string& password, int& index);
 		bool LoginUser(const std::string& username, const std::string& password, int& index);
 		void LogoutUser();
+		void LogoutAccount();
 		void addAccount(Account* account);
 
 		void Load();

@@ -39,22 +39,26 @@ Store& Application::GetStore()
     return store;
 }
 
-bool Application::LoginAccount(const std::string& email, const std::string& password)
+bool Application::LoginAccount(const std::string& email, const std::string& password, int& index)
 {
-
-	// TODO: This currently always logs you in as the first account
-	currentAccount = accounts.first();
-
-    return true;
+    if (password == accounts.operator[](index)->GetPassword()) {
+        currentAccount = accounts.operator[](index);
+        return true;
+    }
+    else return false;
+    
 }
 
 bool Application::LoginUser(const std::string& username, const std::string& password, int& index)
 {
-    
-    // TODO: This currently always logs you in as the first user
-    currentUser = currentAccount->users[index];
+    if (password == currentAccount->users.operator[](index)->GetPassword()) {
+        currentUser = currentAccount->users[index];
 
-    return true;
+        return true;
+    }
+    else return false;
+    
+    
 }
 
 void Application::LogoutUser()
@@ -62,17 +66,17 @@ void Application::LogoutUser()
     currentUser = nullptr;
 }
 
-//Account* Application::GetAccount(const int& index) const
-//{
-//    if (!(accounts.isEmpty() && accounts.length() < index))
-//    {
-//        return accounts.first();
-//    }
-//}
+void Application::LogoutAccount() {
+    currentAccount = nullptr;
+}
 
 void Application::addAccount(Account* account)
 {
     this->accounts.addInFront(account);
+}
+
+List<Account*> Application::GetAccounts() const {
+    return accounts;
 }
 
 void Application::Load() 
@@ -152,7 +156,6 @@ void Application::Load()
             }
             Date* date = new Date(day, month, year);
             accounts.addInFront(new Account(email, password, date));
-            LoginAccount(email, password);
         }
         else if (line == "LIBRARY-ITEM") {
             int id, day, month, year, playTime;

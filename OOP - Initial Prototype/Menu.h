@@ -20,11 +20,10 @@ public:
     // Returning true means you are ready to go back to the previous menu
     // Returning false means you will stay on the same menu
     virtual bool HandleChoice(char) = 0;
-
 protected:
     Application* app;                                   // each menu will store a pointer to the main application
                                                         // this way menus can access all the data required
-
+    void printInt(const int& num);
     void Line();										// output blank line
     void Line(const std::string& text);					// output a message
     void Option(const int& id, const std::string& option);		// output menu option

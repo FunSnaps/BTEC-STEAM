@@ -19,72 +19,21 @@ bool LoginUserMenu::HandleChoice(char choice)
 {
     int index = choice - '1';
 
-    if (index >= 0 && index < 4)
+    if (index >= 0 && index < app->GetCurrentAccount()->users.length())
     {
-        switch (choice)
+
+        std::string username = app->GetCurrentAccount()->users.operator[](index)->GetUsername();
+
+        std::cout << "  Enter password for " << username << ": ";
+        if (app->LoginUser(username, Utils::getLineFromUser(), index))
         {
-        case '1': {
-            
-            int index = choice - '1';
-            
-            if (index >= 0 && index < 3) // TODO: Hardcoded numbers, change when using List<T>
-            {
-                std::string username = app->GetCurrentAccount()->users.operator[](index)->GetUsername();
-
-                std::cout << "  Enter password for " << username << ": ";
-                if (app->LoginUser(username, Utils::getLineFromUser(), index))
-                {
-                    return true;
-                }
-            }	
+            return true;
         }
-        case '2': {
-            int index = choice - '1';
-
-            if (index >= 0 && index < 3) // TODO: Hardcoded numbers, change when using List<T>
-            {
-                std::string username = app->GetCurrentAccount()->users[index]->GetUsername();
-
-                std::cout << "  Enter password for " << username << ": ";
-                if (app->LoginUser(username, Utils::getLineFromUser(), index))
-                {
-                    return true;
-                }
-            }
+        else {
+            BlockingMessage("Incorrect Password. Try Again ");
+            return false;
         }
-        case '3': {
-            int index = choice - '1';
-
-            if (index >= 0 && index < 3) // TODO: Hardcoded numbers, change when using List<T>
-            {
-                std::string username = app->GetCurrentAccount()->users[index]->GetUsername();
-
-                std::cout << "  Enter password for " << username << ": ";
-                if (app->LoginUser(username, Utils::getLineFromUser(), index))
-                {
-                    return true;
-                }
-            }
-        }
-        case '4':
-        {
-            int index = choice - '1';
-
-            if (index >= 0 && index < 4) // TODO: Hardcoded numbers, change when using List<T>
-            {
-                std::string username = app->GetCurrentAccount()->users[index]->GetUsername();
-
-                std::cout << "  Enter password for " << username << ": ";
-                if (app->LoginUser(username, Utils::getLineFromUser(), index))
-                {
-                    return true;
-                }
-            }
-        }
-        default:
-            break;
-        }
-        return false;
     }
+    return false;
 }
 

@@ -4,6 +4,7 @@
 #include "StoreMenu.h"
 #include "LoginUserMenu.h"
 #include "ProfileMenu.h"
+#include "LoginAccountMenu.h"
 
 class MainMenu : public Menu
 {

@@ -22,3 +22,8 @@ void Player::addLibraryItem(LibraryItem* item)
 std::vector<LibraryItem*> Player::getLibraryItems() const {
 	return library;
 }
+
+void Player::addCredit(int add)
+{
+	credit = credit + add;
+}
