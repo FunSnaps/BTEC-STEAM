@@ -35,9 +35,6 @@ void ProfileMenu::OutputOptions()
 
 bool ProfileMenu::HandleChoice(char choice)
 {
-	// since we are using numbers here we shift the char down by '1'
-	// this puts '1' as 0, '2' as 1, '3' as 2, '4' as 3, etc.
-	// this reverses the + 1 above and lets us do the range check below
 	int index = choice - '1';
 
 	if (index >= 0 && index < 10)
@@ -49,21 +46,22 @@ bool ProfileMenu::HandleChoice(char choice)
 		}
 
 		if (index == (iter)) {
-			BlockingMessage("ADD");
+			std::string newUsername = Question("Enter username");
+			std::string newPassword = Question("Enter Password");
+			Date* date = d->CurrentDate();
+			Player* player = new Player(newUsername, newPassword, date, 0, false);
+			app->GetCurrentAccount()->users.addAtEnd(player);
 		}
-		/*else if (index == iter + 1) {
+		else if (index == iter + 1) {
 			std::string temp = Question("Who would you like to remove?");
 			for (int j = 0; j < app->GetCurrentAccount()->users.length(); j++) {
 				if (temp == app->GetCurrentAccount()->users.operator[](j)->GetUsername()) {
-					std::string username = app->GetCurrentAccount()->users.operator[](j)->GetUsername();
-					std::string password = app->GetCurrentAccount()->users.operator[](j)->GetPassword;
-					Date* date = app->GetCurrentAccount()->users.operator[](j).GetCreated();
-					int credit = app->GetCurrentAccount()->users.operator[](j)->getCredit();
-					bool status = app->GetCurrentAccount()->users.operator[](j)->GetUserStatus();
-					app->GetCurrentAccount()->users.deleteOne(new Player(username, password, date, credit, status));
+					app->GetCurrentAccount()->users.deleteOne(app->GetCurrentAccount()->users.operator[](j));
+					BlockingMessage("Deleted");
 				}
 			}
-		}*/
+		}
+
 	}
 	switch (choice) {
 	case 'I':
@@ -113,3 +111,5 @@ bool ProfileMenu::HandleChoice(char choice)
 	}
 	return false;
 }
+
+

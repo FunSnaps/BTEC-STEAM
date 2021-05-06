@@ -28,6 +28,12 @@ void Player::addLibraryItem(LibraryItem* item)
     library.push_back(item);
 }
 
+void Player::buyGame(int cost)
+{
+	credit = credit - cost;
+}
+
+
 std::vector<LibraryItem*> Player::getLibraryItems() const {
     return library;
 }

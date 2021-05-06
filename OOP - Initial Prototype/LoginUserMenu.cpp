@@ -8,7 +8,7 @@ LoginUserMenu::LoginUserMenu(const std::string& title, Application* app) : Menu(
 
 void LoginUserMenu::OutputOptions()
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < app->GetCurrentAccount()->users.length(); i++)
     {
         // adding 1 so the display is nicer for the user
         Option(i + 1, app->GetCurrentAccount()->users.operator[](i)->GetUsername());
@@ -19,7 +19,7 @@ bool LoginUserMenu::HandleChoice(char choice)
 {
     int index = choice - '1';
 
-    if (index >= 0 && index < 3)
+    if (index >= 0 && index < 4)
     {
         switch (choice)
         {
@@ -56,6 +56,21 @@ bool LoginUserMenu::HandleChoice(char choice)
             int index = choice - '1';
 
             if (index >= 0 && index < 3) // TODO: Hardcoded numbers, change when using List<T>
+            {
+                std::string username = app->GetCurrentAccount()->users[index]->GetUsername();
+
+                std::cout << "  Enter password for " << username << ": ";
+                if (app->LoginUser(username, Utils::getLineFromUser(), index))
+                {
+                    return true;
+                }
+            }
+        }
+        case '4':
+        {
+            int index = choice - '1';
+
+            if (index >= 0 && index < 4) // TODO: Hardcoded numbers, change when using List<T>
             {
                 std::string username = app->GetCurrentAccount()->users[index]->GetUsername();
 

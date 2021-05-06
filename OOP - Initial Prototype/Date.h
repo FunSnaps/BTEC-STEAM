@@ -1,5 +1,7 @@
 #pragma once
 #include "assert.h"
+#include <iostream>
+#include <ctime>
 class Date
 {
 public:
@@ -29,6 +31,8 @@ public:
 	bool isValid() const;
 	//mutate
 	void setDate(int dd, int mm, int yy);
+
+	Date* CurrentDate();
 private:
 	int year, month, day;
 };
