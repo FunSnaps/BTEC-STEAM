@@ -25,17 +25,25 @@ void ProfileMenu::OutputOptions( )
 		Option(iter + 1, app->GetCurrentUser()->getLibraryItems().operator[](iter)->getGame().GetName());
 	}
 
+	Line();
+	Option(iter + 1, "Sort by game name");
+	Option(iter + 2, "Sort by date");
+
 	if (app->GetCurrentUser()->GetUserStatus()) {
 		Line();
-		Option(iter + 1, "Add new user");
-		Option(iter + 2, "Remove user");
+		Option(iter + 3, "Add new user");
+		Option(iter + 4, "Remove user");
 	}
 
-	Line();
-	Option(iter + 3, "Sort by game name");
-	Option(iter + 4, "Sort by date");
+	
 		
 }
+
+struct SortLibraryItems {
+	bool operator()(LibraryItem* lhs, LibraryItem* rhs) {
+		return lhs->sortVector(rhs);
+	}
+};
 
 bool ProfileMenu::HandleChoice(char choice)
 {
@@ -50,13 +58,22 @@ bool ProfileMenu::HandleChoice(char choice)
 		}
 
 		if (index == (iter)) {
+			BlockingMessage("order name");
+			//std::sort(app->GetCurrentUser()->getLibraryItems().begin(), app->GetCurrentUser()->getLibraryItems().end());
+			return true;
+		}
+		else if (index == iter + 1) {
+			BlockingMessage("order by date");
+		}
+		else if (index == (iter + 2)) {
 			std::string newUsername = Question("Enter username");
 			std::string newPassword = Question("Enter Password");
 			Date* date = d->CurrentDate();
 			Player* player = new Player(newUsername, newPassword, date, 0, false);
 			app->GetCurrentAccount()->users.addAtEnd(player);
+			BlockingMessage("Created");
 		}
-		else if (index == iter + 1) {
+		else if (index == iter + 3) {
 			std::string temp = Question("Who would you like to remove?");
 			for (int j = 0; j < app->GetCurrentAccount()->users.length(); j++) {
 				if (temp == app->GetCurrentAccount()->users.operator[](j)->GetUsername()) {
@@ -117,5 +134,7 @@ bool ProfileMenu::HandleChoice(char choice)
 
 	return false;
 }
+
+
 
 

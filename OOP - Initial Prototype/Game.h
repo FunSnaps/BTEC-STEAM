@@ -5,7 +5,7 @@
 class Game
 {
 	public:
-		Game(const std::string&, const std::string&, const int&, const int&);
+		Game(const std::string&, const std::string&, const int&, const int&, int&);
 		~Game();
 
 		const std::string& GetName() const;
@@ -16,4 +16,5 @@ class Game
 		std::string description;
 		int cost;
 		int ageRating;
+		int starRating;
 };

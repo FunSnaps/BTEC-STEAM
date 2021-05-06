@@ -4,54 +4,72 @@ The Witness
 Explore a nice island and solve puzzles.
 2999
 5
+0
+0
 GAME
 1
 Braid
 A time twisting puzzle game.
 499
 15
+0
+0
 GAME
 2
 Factorio
 Build a complicated factory in space.
 1599
 12
+0
+0
 GAME
 3
 LIMBO
 Watch out for that spider.
 299
 12
+0
+0
 GAME
 4
 INSIDE
 What are those scientists even doing?!
 1299
 15
+0
+0
 GAME
 5
 Portal 2
 Play around with physics. Shoot the moon.
 1999
 15
+0
+0
 GAME
 6
 Half Life 3
 It's never coming out.
 5999
 18
+0
+0
 GAME
 7
 NUVAVULT
 A game where 2D and 3D collide.
 299
 18
+0
+0
 GAME
 8
 Brothers
 Split your brain into two thumbs.
 799
 15
+0
+0
 ACCOUNT
 2017-06-16
 alice@shu.com
@@ -95,3 +113,20 @@ LIBRARY-ITEM
 5
 2017-09-30
 360
+LIBRARY-ITEM
+3
+2017-09-24
+180
+LIBRARY-ITEM
+2
+2017-09-30
+360
+ACCOUNT
+2021-05-10
+sav@shu.com
+password
+ACCOUNT-PLAYER
+2017-09-19
+Joe
+password
+100

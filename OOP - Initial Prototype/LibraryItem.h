@@ -10,6 +10,7 @@ class LibraryItem
 		~LibraryItem();
 
 		Game getGame() const;
+		bool sortVector( LibraryItem* item) ;
 
 	private:
 		const Game game;

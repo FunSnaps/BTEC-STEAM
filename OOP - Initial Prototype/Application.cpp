@@ -99,7 +99,7 @@ void Application::Load()
             int likes;
             int dislikes;
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 7; i++) {
                 getline(theFile, line);
                 switch (i) {
                 case 0: 
@@ -118,16 +118,23 @@ void Application::Load()
                     ageRating = std::stoi(line);
                     break;
                 case 5:
-                    //likes = std::stoi(line);
+                    likes = std::stoi(line);
                     break;
                 case 6:
-                    //dislikes = std::stoi(line);
+                    dislikes = std::stoi(line);
                     break;
                 default:
                     break;
                 }
             }
-            GetStore().addGame(new Game(name, description, cost, ageRating));
+            int rating;
+            if (likes != 0 && dislikes != 0) {
+                rating = (likes / (likes + dislikes)) * 100;
+            }
+            else {
+                rating = 0;
+            }
+            GetStore().addGame(new Game(name, description, cost, ageRating, rating));
         }
         else if (line == "ACCOUNT")
         {

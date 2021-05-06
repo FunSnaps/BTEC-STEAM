@@ -16,7 +16,5 @@ public:
 private:
     Date* d;
     int iter;
-    void sortResults();
-    bool sort() const;
 };
 
