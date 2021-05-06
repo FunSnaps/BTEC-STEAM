@@ -6,24 +6,31 @@ ProfileMenu::ProfileMenu(const std::string& title, Application* app)
 	Paint(); // required in constructor
 }
 
-void ProfileMenu::OutputOptions( )
+void ProfileMenu::OutputOptions()
 {
-		
-		// adding 1 so the display is nicer for the user
-		Line( "Account holder: " + app->GetCurrentAccount()->users[0]->GetUsername());
-		Line();
-		Line("Username: " + app->GetCurrentUser()->GetUsername());
-		Line();
-		Line("Owned Games");
-		for (iter = 0; iter != app->GetCurrentUser()->getLibraryItems().size(); iter++) {
-			Option(iter + 1, app->GetCurrentUser()->getLibraryItems().operator[](iter)->getGame().GetName());
-		}
 
-		if (app->GetCurrentUser()->GetUserStatus()) {
-			Line();
-			Option(iter + 1, "Add new user");
-			Option(iter + 2, "Remove user");
-		}
+	// adding 1 so the display is nicer for the user
+	Line("Account holder: " + app->GetCurrentAccount()->users[0]->GetUsername());
+	Line();
+	Line("Username: " + app->GetCurrentUser()->GetUsername());
+	Line();
+	Line("Current Credit - ");
+	printInt(app->GetCurrentUser()->getCredit());
+	Line();
+	Line("I) Purchase 10 Credits");
+	Line("O) Purchase 100 Credits");
+	Line("P) Purchase 1000 Credits");
+	Line();
+	Line("Owned Games");
+	for (iter = 0; iter != app->GetCurrentUser()->getLibraryItems().size(); iter++) {
+		Option(iter + 1, app->GetCurrentUser()->getLibraryItems().operator[](iter)->getGame().GetName());
+	}
+
+	if (app->GetCurrentUser()->GetUserStatus()) {
+		Line();
+		Option(iter + 1, "Add new user");
+		Option(iter + 2, "Remove user");
+	}
 }
 
 bool ProfileMenu::HandleChoice(char choice)
@@ -58,6 +65,51 @@ bool ProfileMenu::HandleChoice(char choice)
 			}
 		}*/
 	}
+	switch (choice) {
+	case 'I':
+	{
+		system("CLS");
+		app->GetCurrentUser()->addCredit(10);
+		Line();
+		Line("You have purchased 10 credits!");
+		Line();
+		Line("Your credit is now - ");
+		printInt(app->GetCurrentUser()->getCredit());
+		Line();
+		Option("B) Back");
+		Utils::getCharFromUser();
 
+	} break;
+	case 'O':
+	{
+		system("CLS");
+		app->GetCurrentUser()->addCredit(100);
+		Line();
+		Line("You have purchased 100 credits!");
+		Line();
+		Line("Your credit is now - ");
+		printInt(app->GetCurrentUser()->getCredit());
+		Line();
+		Option("B) Back");
+		Utils::getCharFromUser();
+
+	} break;
+	case 'P':
+	{
+		system("CLS");
+		app->GetCurrentUser()->addCredit(1000);
+		Line();
+		Line("You have purchased 1000 credits!");
+		Line();
+		Line("Your credit is now - ");
+		printInt(app->GetCurrentUser()->getCredit());
+		Line();
+		Option("B) Back");
+		Utils::getCharFromUser();
+
+	} break;
+	default:
+		break;
+	}
 	return false;
 }

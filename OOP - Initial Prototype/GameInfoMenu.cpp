@@ -7,24 +7,21 @@ GameInfoMenu::GameInfoMenu(const std::string& title, Application* app, const int
 
 void GameInfoMenu::OutputOptions()
 {
-    if (index < 5) {
-        Option(app->GetStore().getIndex(index).GetDescription());
-        Line();
-        Option(app->GetStore().getIndex(index).GetCost());
-    }
-    else if (index == 6)
+    if (index == 'N')
     {
         for (int i = 5; i < app->GetStore().GetGames().length(); i++)
         {
-            Option(i + 1, app->GetStore().getIndex(i).GetName());           //2 hours :D -marcus
-        }
+            Option(i + 1, app->GetStore().getIndex(i).GetName());           // 2 hours :D -marcus
+        }                                                                   // + 4 hours :)
         Line();
     }
-    else if (index >= 4)
+    else
     {
-        Option(app->GetStore().getIndex(index).GetDescription());
-        Line();
-        Option(app->GetStore().getIndex(index).GetCost());
+        if (index < 5 || index > 4) {
+            Option(app->GetStore().getIndex(index).GetDescription());
+            Line();
+            Option(app->GetStore().getIndex(index).GetCost());
+        }
     }
 }
 
@@ -34,7 +31,7 @@ bool GameInfoMenu::HandleChoice(char choice)
     if (index >= 5 && index < app->GetStore().GetGames().length())
     {
         std::string temp = app->GetStore().getIndex(index).GetName();
-        GameInfoMenu(temp, app, index);
+        GameInfoMenu(utils.ToUpper(temp), app, index);
     }
 
     return false;

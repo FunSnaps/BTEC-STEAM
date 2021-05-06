@@ -58,6 +58,11 @@ void Menu::Option(const std::string& text)
     std::cout << "  " << "Info:" << text << '\n';
 }
 
+void Menu::printInt(const int& text)
+{
+    std::cout << "  " << text << "\n";
+}
+
 void Menu::Option(const int& id, const std::string& option)
 {
     // shift the integer value up to the correct position in the ascii table

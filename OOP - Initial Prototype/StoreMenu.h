@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Menu.h"
-
+#include "User.h"
 #include <iostream>
 
 class StoreMenu : public Menu
@@ -12,5 +12,5 @@ public:
     bool HandleChoice(char choice) final;
 private:
     List<std::string> games;
-    //std::vector<std::string> games;
+    Utils utils;
 };

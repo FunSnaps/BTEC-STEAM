@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Menu.h"
+#include "Utils.h"
 #include <iostream>
 
 class GameInfoMenu : public Menu
@@ -11,4 +12,5 @@ public:
     bool HandleChoice(char choice) final;
 private:
     const int& index;
+    Utils utils;
 };

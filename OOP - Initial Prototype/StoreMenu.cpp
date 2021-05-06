@@ -5,7 +5,7 @@
 
 StoreMenu::StoreMenu(const std::string& title, Application* app) : Menu(title, app)
 {
-    Paint(); // required in constructor
+    Paint(); 
 }
 
 void StoreMenu::OutputOptions()
@@ -23,21 +23,18 @@ void StoreMenu::OutputOptions()
 
 bool StoreMenu::HandleChoice(char choice)
 {
-    // since we are using numbers here we shift the char down by '1'
-    // this puts '1' as 0, '2' as 1, '3' as 2, '4' as 3, etc.
-    // this reverses the + 1 above and lets us do the range check below
     int index = choice - '1';
 
     if (index >= 0 && index < app->GetStore().GetGames().length() / 2 + 1)
     {
         std::string temp = app->GetStore().getIndex(index).GetName();
-        GameInfoMenu(temp, app, index);
+        GameInfoMenu(utils.ToUpper(temp), app, index);
     }
 
     switch (choice) {
     case 'N':
     {   
-        GameInfoMenu("STORE", app, 6);
+        GameInfoMenu("STORE", app, 'N');
     } break;
     case 'S':
     {

@@ -2,6 +2,8 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
+#include <cctype>
 
 class Utils
 {
@@ -9,5 +11,6 @@ class Utils
     static std::string getLineFromUser();
     static char getCharFromUser();
     
-    // TODO: 2 versions of ToUpper
+    static std::string ToUpper(std::string& title);
+    static std::string ToUpperRec(std::string& title);
 };

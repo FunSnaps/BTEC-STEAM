@@ -31,6 +31,7 @@ protected:
     void Option(const char& id, const std::string& option);	    // output menu option
     void Option(const int& cost);                               // output menu option int
     void Option(const std::string& text);
+    void printInt(const int& num);
     std::string Question(const std::string& question);	        // output a question and return the user's input
     void BlockingMessage(const std::string& message);	        // output message and wait for the user to press enter
 

@@ -10,16 +10,17 @@
 
 class Player : public User
 {
-	public:
-		//constructors + destructor
-		Player(const std::string& username, const std::string& password, Date* created, const int& credit, bool userStatus);
-		~Player();
-		//query
-		int getCredit() const;
-	
+public:
+    //constructors + destructor
+    Player(const std::string& username, const std::string& password, Date* created, const int& credit, bool userStatus);
+    ~Player();
+    //query
+    int getCredit() const;
+    void addCredit(int add);
+    
     void addLibraryItem(LibraryItem* item);
-		std::vector<LibraryItem*> getLibraryItems() const;
-	private:
-		int credit = 1000;
+    std::vector<LibraryItem*> getLibraryItems() const;
+private:
+    int credit = 1000;
     std::vector<LibraryItem*> library;
 };
