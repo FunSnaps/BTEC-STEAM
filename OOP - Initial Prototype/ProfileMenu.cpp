@@ -6,7 +6,7 @@ ProfileMenu::ProfileMenu(const std::string& title, Application* app)
 	Paint();
 }
 
-void ProfileMenu::OutputOptions( )
+void ProfileMenu::OutputOptions()
 {
 	Line("Account holder: " + app->GetCurrentAccount()->users[0]->GetUsername());
 	Line();
@@ -40,7 +40,6 @@ void ProfileMenu::OutputOptions( )
 		Option('L', "Like");
 		Option('D', "Dislike");
 	}
-
 }
 
 bool ProfileMenu::HandleChoice(char choice)
@@ -80,6 +79,19 @@ bool ProfileMenu::HandleChoice(char choice)
 			}
 		}
 	}
+	switch (choice) {
+	case 'I':
+	{
+		system("CLS");
+		app->GetCurrentUser()->addCredit(10);
+		Line();
+		Line("You have purchased 10 credits!");
+		Line();
+		Line("Your credit is now - ");
+		printInt(app->GetCurrentUser()->getCredit());
+		Line();
+		Option("B) Back");
+		Utils::getCharFromUser();
 
 	switch (choice) {
 	case 'I':
@@ -115,6 +127,7 @@ bool ProfileMenu::HandleChoice(char choice)
 		system("CLS");
 		app->GetCurrentUser()->addCredit(1000);
 		Line();
+
 		Line("You have purchased 1000.0 credits!");
 		Line();
 		Line("Your credit is now - ");
@@ -142,6 +155,7 @@ bool ProfileMenu::HandleChoice(char choice)
 			}
 		}
 	}break;
+
 	default:
 		break;
 	}

@@ -34,7 +34,9 @@ class Application
 		void addAccount(Account* account);
 
 		bool Load();
+
 		void Save();
+
 
 	private:
 		List<Account*> accounts;

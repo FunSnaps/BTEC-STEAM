@@ -1,17 +1,17 @@
 #include "Application.h"
 
-Application::Application() 
-	: currentAccount(nullptr), currentUser(nullptr)
+Application::Application()
+    : currentAccount(nullptr), currentUser(nullptr)
 {
 }
 
 Application::~Application()
 {
 
-	for (int i = 0; i < 1; ++i)
-	{
-		accounts.deleteFirst();
-	}
+    for (int i = 0; i < 1; ++i)
+    {
+        accounts.deleteFirst();
+    }
 }
 
 
@@ -44,18 +44,22 @@ Store& Application::GetStore()
 
 bool Application::LoginAccount(const std::string& email, const std::string& password, int& index)
 {
+
     if (password == accounts.operator[](index)->GetPassword()) {
         currentAccount = accounts.operator[](index);
         return true;
     }
     else return false;
     
+
 }
 
 bool Application::LoginUser(const std::string& username, const std::string& password, int& index)
 {
+
     if (password == currentAccount->users.operator[](index)->GetPassword()) {
         currentUser = currentAccount->users[index];
+
 
         return true;
     }
@@ -77,6 +81,7 @@ void Application::addAccount(Account* account)
 {
     this->accounts.addInFront(account);
 }
+
 
 List<Account*> Application::GetAccounts() const {
     return accounts;
@@ -192,6 +197,7 @@ bool Application::Load()
                             playTime = std::stoi(line);
                             break;
                         default:
+                            return false;
                             break;
                         }
                     }
@@ -205,23 +211,27 @@ bool Application::Load()
                 {
                     int day, month, year;
                     for (int i = 0; i < 4; i++) {
+
                         getline(theFile, line);
                         switch (i)
                         {
                         case 0:
+
                             day = std::stoi(line.substr(7, line.find("-")));
                             month = std::stoi(line.substr(5, line.find("-")));
                             year = std::stoi(line.substr(0, line.find("-")));
                             break;
                         case 1:
-                            username = line;
+                            email = line;
                             break;
                         case 2:
                             password = line;
                             break;
+
                         case 3:
                             credit = std::stoi(line);
                             break;
+
                         default:
                             return false;
                             break;

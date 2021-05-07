@@ -1,6 +1,7 @@
 #include "GameInfoMenu.h"
 
 GameInfoMenu::GameInfoMenu(const std::string& title, Application* app, const int& index) : Menu(title, app), gameIndex(index)
+
 {
     Paint();
 }
@@ -24,7 +25,6 @@ void GameInfoMenu::OutputOptions()
             OptionCost(app->GetStore().getIndex(gameIndex).GetCost());
         }
     }
-
 }
 
 bool GameInfoMenu::HandleChoice(char choice)

@@ -25,6 +25,7 @@ std::string Utils::ToUpper(std::string& title)
         {
             upper += (word.at(i) - 32);
         }
+
         else {
             upper += word.at(i);
         }

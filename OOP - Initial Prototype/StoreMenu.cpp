@@ -1,5 +1,7 @@
 #include "Menu.h"
 #include "StoreMenu.h"
+#include "GameBuyMenu.h"
+#include "GameInfoMenu.h"
 
 #include <string>
 
@@ -23,7 +25,6 @@ void StoreMenu::OutputOptions()
 
 bool StoreMenu::HandleChoice(char choice)
 {
-
     int index = choice - '1';
 
     if (index >= 0 && index < app->GetStore().GetGames().length() / 2 + 1)
@@ -43,6 +44,7 @@ bool StoreMenu::HandleChoice(char choice)
 
     switch (choice) {
     case 'N':
+
     {
         if (app->IsUserLoggedIn())
         {
@@ -51,6 +53,7 @@ bool StoreMenu::HandleChoice(char choice)
         else {
             GameInfoMenu("STORE", app, 'N');
         }
+
     } break;
     case 'S':
     {

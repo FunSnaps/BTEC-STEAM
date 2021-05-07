@@ -1,6 +1,8 @@
 #include "GameBuyMenu.h"
 
+
 GameBuyMenu::GameBuyMenu(const std::string& title, Application* app, const int& index) : Menu(title, app), gameIndex(index)
+
 {
     Paint();
 }
@@ -47,6 +49,7 @@ void GameBuyMenu::OutputOptions()
 
 bool GameBuyMenu::HandleChoice(char choice)
 {
+
     int index = choice - '1';
     if (index >= 5 && index < app->GetStore().GetGames().length())
     {
@@ -72,10 +75,11 @@ bool GameBuyMenu::HandleChoice(char choice)
     case 'B':
     {
         SearchMenu("SEARCH", app);
-    }
+    }break;
     default:
         break;
     }
     return false;
 }
+
 

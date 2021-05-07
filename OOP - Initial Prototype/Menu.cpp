@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-Menu::Menu(const std::string& title, Application* app) 
+Menu::Menu(const std::string& title, Application* app)
     : title(title), app(app)
 {
 }
@@ -28,6 +28,15 @@ void Menu::Paint()
             readyToGoBack = HandleChoice(choice);
         }
     }
+}
+void Menu::printInt(const int& text)
+{
+    std::cout << "  " << text << "\n";
+}
+
+void Menu::Option(const std::string& text)
+{
+    std::cout << "  " << text << "\n";
 }
 
 void Menu::Line()

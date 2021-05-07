@@ -11,6 +11,7 @@ public:
     void OutputOptions() final;
     bool HandleChoice(char choice) final;
 private:
+
     const int& gameIndex;
     Utils utils;
 };

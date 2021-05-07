@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Menu.h"
+
 #include "GameInfoMenu.h"
 #include "GameBuyMenu.h"
 #include "SearchMenu.h"

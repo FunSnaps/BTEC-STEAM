@@ -18,6 +18,7 @@ public:
 
     virtual bool HandleChoice(char) = 0;
 protected:
+
     Application* app;                                  
                                                         
     void Line();										
@@ -31,7 +32,6 @@ protected:
     void OptionRating(const std::string& infoText);
     std::string Question(const std::string& question);	
     void BlockingMessage(const std::string& message);	
-
 private:
     std::string title;
 

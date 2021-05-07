@@ -2,17 +2,18 @@
 
 
 Player::Player(const std::string& username, const std::string& password, Date* created, const int& credit, bool userStatus)
-	: User(username, password, created, credit, userStatus)
+    : User(username, password, created, credit, userStatus)
 {
 }
 
 Player::~Player()
 {
-	for (int i = 0; i < 2; ++i)
-	{
-		delete library[i];
-	}
+    for (int i = 0; i < 2; ++i)
+    {
+        delete library[i];
+    }
 }
+
 
 int Player::getCredit() const
 {
@@ -25,8 +26,14 @@ void Player::addCredit(int add)
 
 void Player::addLibraryItem(LibraryItem* item)
 {
-	library.push_back(item);
+    library.push_back(item);
 }
+
+void Player::buyGame(int cost)
+{
+	credit = credit - cost;
+}
+
 
 std::vector<LibraryItem*> Player::getLibraryItems() const {
 	return library;

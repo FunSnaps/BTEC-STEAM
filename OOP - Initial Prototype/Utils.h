@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+
 #include <iomanip>
 #include <vector>
 #include <cctype>
@@ -15,6 +16,7 @@ class Utils
     static char getCharFromUser();
     
     static std::string ToUpper(std::string& title);
+
     static void ToUpperRec(char title[]);
 
     static std::string toLower(std::string name);
