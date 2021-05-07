@@ -3,7 +3,7 @@
 MainMenu::MainMenu(const std::string& title, Application* app) 
 	: Menu(title, app)
 {
-	Paint(); // required in constructor
+	Paint(); 
 }
 
 void MainMenu::OutputOptions()

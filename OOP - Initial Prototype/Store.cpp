@@ -16,7 +16,7 @@ void Store::addGame(Game* game) {
 	games.addAtEnd(game);
 }
 
-Game Store::getIndex(const int& index) //pass by ref?
+Game Store::getIndex(const int& index) 
 {
 	return *games[index];
 }
@@ -28,5 +28,5 @@ List<Game*> Store::GetGames()
 
 List<std::string> Store::searchGameName()
 {
-	return List<std::string>(); //needs to b e implemented
+	return List<std::string>(); 
 }

@@ -45,9 +45,35 @@ void Menu::Option(const char& id, const std::string& option)
     std::cout << "  " << id << ") " << option << '\n';
 }
 
+void Menu::OptionCost(const double& cost)
+{
+    std::stringstream format;
+    std::cout << format.str() << "  " << "Credit: " << std::setprecision(5) << cost / 1.00f << '\n';
+}
+
+void Menu::OptionPrice(const double& cost)
+{
+    std::stringstream format;
+    std::cout << format.str() << "  " << "Price: " << std::setprecision(5) << cost / 100.00f << '\n';
+}
+
+void Menu::OptionInfo(const std::string& infoText)
+{
+    std::cout << "  " << "Info:" << infoText << '\n';
+}
+
+void Menu::OptionPlain(const std::string& plainText)
+{
+    std::cout << "  " << plainText << '\n';
+}
+
+void Menu::OptionRating(const std::string& infoText)
+{
+    std::cout << "  " << "Rating: " << infoText << '\n';
+}
+
 void Menu::Option(const int& id, const std::string& option)
 {
-    // shift the integer value up to the correct position in the ascii table
     char ascii = id + '0';
     Option(ascii, option);
 }
@@ -68,10 +94,8 @@ void Menu::Header()
 {
 
 #if defined _WIN32 || defined _WIN64
-    // we are running on windows so use CLS to clear the screen
     system("CLS");
 #else
-    // we are running on mac or linux so use CLEAR to clear the screen
     system("CLEAR");
 #endif
 
@@ -87,7 +111,3 @@ void Menu::Footer()
     std::cout << "  >>> ";
 }
 
-void Menu::printInt(const int& text)
-{
-    std::cout << "  " << text << "\n";
-}

@@ -2,36 +2,34 @@
 #include "assert.h"
 #include <iostream>
 #include <ctime>
+#include <string>
 class Date
 {
 public:
-	//constructors + destructor
-	Date(); //default
+	Date(); 
 	Date(int dd, int mm, int yyyy);
-	Date(const Date&); //copy
-	~Date(); //destructor
+	Date(const Date&); 
+	~Date(); 
 
-	//query
-	int getYear() const;
-	int getMonth() const;
-	int getDay() const;
+	const std::string getYear() const;
+	const std::string getMonth() const;
+	const std::string getDay() const;
 
 	bool isBefore(const Date& other) const;
-	bool operator < (const Date& other) const; //operator overload for isBefore
+	bool operator < (const Date& other) const; 
 
 	bool isAfter(const Date& other) const;
-	bool operator > (const Date& other) const; //operator overload for isAfter
+	bool operator > (const Date& other) const; 
 
 	bool isSame(const Date& other) const;
-	bool operator == (const Date& other) const; //operator overload for isSame
+	bool operator == (const Date& other) const; 
 
 	bool isDifferent(const Date& other) const;
-	bool operator != (const Date& other) const; //operator overload for isDifferent
+	bool operator != (const Date& other) const; 
 
 	bool isValid() const;
-	//mutate
 	void setDate(int dd, int mm, int yy);
-
+	const std::string& getDate() const;
 	Date* CurrentDate();
 private:
 	int year, month, day;

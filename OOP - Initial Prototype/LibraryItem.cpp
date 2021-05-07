@@ -17,6 +17,18 @@ bool LibraryItem::sortVector(LibraryItem* item) {
 	return game.GetName() < item->getGame().GetName();
 }
 
-//bool operator<(const LibraryItem& lhs, const LibraryItem& rhs) {
-//	return lhs.sortVector(rhs);
-//}
+Date* LibraryItem::GetDatePurchased() const
+{
+	return purchased;
+}
+
+double LibraryItem::getHours() {
+	return hoursPlayed;
+}
+
+
+void LibraryItem::setHours() {
+	int temp = rand() % 60 + 10;
+	hoursPlayed += temp;
+}
+

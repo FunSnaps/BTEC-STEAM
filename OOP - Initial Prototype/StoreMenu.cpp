@@ -5,12 +5,12 @@
 
 StoreMenu::StoreMenu(const std::string& title, Application* app) : Menu(title, app)
 {
-    Paint(); // required in constructor
+    Paint(); 
 }
 
 void StoreMenu::OutputOptions()
 {
-    for (int i = 0; i < app->GetStore().GetGames().length(); i++)
+    for (int i = 0; i < app->GetStore().GetGames().length() / 2 + 1; i++)
     {
         Option(i + 1, app->GetStore().getIndex(i).GetName());
     }
@@ -23,31 +23,38 @@ void StoreMenu::OutputOptions()
 
 bool StoreMenu::HandleChoice(char choice)
 {
-    // since we are using numbers here we shift the char down by '1'
-    // this puts '1' as 0, '2' as 1, '3' as 2, '4' as 3, etc.
-    // this reverses the + 1 above and lets us do the range check below
+
     int index = choice - '1';
 
-    if (index >= 0 && index < app->GetStore().GetGames().length())
+    if (index >= 0 && index < app->GetStore().GetGames().length() / 2 + 1)
     {
-        BlockingMessage("TO BE DONE AFTER DATA LOADING");
-        // go to game detail page
+        std::string temp = app->GetStore().getIndex(index).GetName();
+        if (app->IsUserLoggedIn()) {
+            GameBuyMenu(utils.ToUpper(temp), app, index);
+        }
+        else {
+            char str[50];
+#pragma warning(suppress : 4996)
+            strcpy(str, temp.c_str());
+            utils.ToUpperRec(str);                  
+            GameInfoMenu(str, app, index);
+        }
     }
 
     switch (choice) {
     case 'N':
     {
-        system("CLS");
-        for (int i = 5; i < app->GetStore().GetGames().length(); i++)
+        if (app->IsUserLoggedIn())
         {
-            Option(i + 1, app->GetStore().getIndex(i).GetName());
+            GameBuyMenu("STORE", app, 'N');
         }
-        Utils::getCharFromUser();
-
+        else {
+            GameInfoMenu("STORE", app, 'N');
+        }
     } break;
     case 'S':
     {
-        BlockingMessage("SEARCH PAGE");
+        SearchMenu("SEARCH", app);
     }
     default:
         break;

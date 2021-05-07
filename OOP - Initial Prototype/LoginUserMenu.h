@@ -11,7 +11,5 @@ public:
     LoginUserMenu(const std::string& title, Application* app);
     void OutputOptions() final;
     bool HandleChoice(char choice) final;
-private:
-    //List<std::string> users;
 };
 

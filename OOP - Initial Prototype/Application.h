@@ -6,6 +6,7 @@
 #include "ListT.h"
 #include "Date.h"
 #include "Admin.h"
+#include "Game.h"
 
 #include <fstream>
 #include <string>
@@ -32,16 +33,13 @@ class Application
 		void LogoutAccount();
 		void addAccount(Account* account);
 
-		void Load();
+		bool Load();
 		void Save();
-		
-
-
-		//Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection
 
 	private:
 		List<Account*> accounts;
 		Store store;
 		Account* currentAccount;
 		Player* currentUser;
+		Game* game;
 };

@@ -20,3 +20,13 @@ std::string& Account::GetEmail() {
 std::string& Account::GetPassword() {
 	return password;
 }
+
+const Date* Account::GetCreated() const
+{
+	return created;
+}
+
+const List<Player*> Account::GetUsers() const
+{
+	return users;
+}

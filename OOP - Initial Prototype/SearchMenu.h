@@ -1,16 +1,13 @@
 #pragma once
 
 #include "Menu.h"
-#include "GameInfoMenu.h"
-#include "GameBuyMenu.h"
-#include "SearchMenu.h"
-
+#include "User.h"
 #include <iostream>
 
-class StoreMenu : public Menu
+class SearchMenu : public Menu
 {
 public:
-    StoreMenu(const std::string& title, Application* app);
+    SearchMenu(const std::string& title, Application* app);
     void OutputOptions() final;
     bool HandleChoice(char choice) final;
 private:

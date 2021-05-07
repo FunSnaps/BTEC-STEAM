@@ -1,6 +1,7 @@
 #pragma once
 #include "Menu.h"
 #include "Date.h"
+#include "GameInfoMenu.h"
 #include<iostream>
 #include <algorithm>
 

@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <sstream>
 #include "LibraryItem.h"
 #include "User.h"
 #include "ListT.h"
@@ -14,10 +16,15 @@ class Player : public User
 		Player(const std::string&, const std::string&, Date*, const int&, bool);
 		~Player();
 		
+		int getCredit() const;
+		void addCredit(int add);
+
 		void addLibraryItem(LibraryItem* item);
 		std::vector<LibraryItem*> getLibraryItems() const;
-		void addCredit(int add);
+		void buyGame(double cost);
+		void sortGameName();
+		void sortReleaseDate();
 	private:
-		int credit = 1000;
+		int credit = 10.00;
 		std::vector<LibraryItem*> library;
 };
