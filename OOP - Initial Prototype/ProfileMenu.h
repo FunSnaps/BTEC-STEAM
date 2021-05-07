@@ -1,6 +1,7 @@
 #pragma once
 #include "Menu.h"
 #include "Date.h"
+#include "GameInfoMenu.h"
 #include<iostream>
 #include <algorithm>
 
@@ -16,7 +17,5 @@ public:
 private:
     Date* d;
     int iter;
-    void sortResults();
-    bool sort() const;
 };
 

@@ -1,15 +1,15 @@
 #include "Date.h"
 
-Date::Date() : day(0), month(0), year(0) //default
+Date::Date() : day(0), month(0), year(0) 
 {
 }
 
 Date::Date(int dd, int mm, int yyyy) : day(dd), month(mm), year(yyyy)
 {
-	assert(isValid()); //check that date is valid
+	assert(isValid()); 
 }
 
-Date::Date(const Date& d) : day(d.day), month(d.month), year(d.year) // copy constructor
+Date::Date(const Date& d) : day(d.day), month(d.month), year(d.year) 
 {
 
 }
@@ -18,19 +18,19 @@ Date::~Date()
 {
 }
 
-int Date::getYear() const
+const std::string Date::getYear() const
 {
-	return year;
+	return std::to_string(year);
 }
 
-int Date::getMonth() const
+const std::string Date::getMonth() const
 {
-	return month;
+	return std::to_string(month);
 }
 
-int Date::getDay() const
+const std::string Date::getDay() const
 {
-	return month;
+	return std::to_string(day);
 }
 
 bool Date::isBefore(const Date& other) const
@@ -48,7 +48,7 @@ bool Date::isBefore(const Date& other) const
 	return false;
 }
 
-bool Date::operator<(const Date& other) const //is before
+bool Date::operator<(const Date& other) const 
 {
 	if (other.year < year) {
 		return true;
@@ -78,7 +78,7 @@ bool Date::isAfter(const Date& other) const
 	return false;
 }
 
-bool Date::operator>(const Date& other) const //is after
+bool Date::operator>(const Date& other) const 
 {
 	if (other.year > year) {
 		return true;
@@ -103,7 +103,7 @@ bool Date::isSame(const Date& other) const
 	}
 }
 
-bool Date::operator==(const Date& other) const //is same
+bool Date::operator==(const Date& other) const 
 {
 	if (other.day == day && other.month == year && other.year == year) {
 		return true;
@@ -121,7 +121,7 @@ bool Date::isDifferent(const Date& other) const
 	return false;
 }
 
-bool Date::operator!=(const Date& other) const //is different
+bool Date::operator!=(const Date& other) const 
 {
 	if (other.day != day && other.month != month && other.year != year) {
 		return true;
@@ -143,6 +143,14 @@ void Date::setDate(int dd, int mm, int yyyy)
 	month = mm;
 	year = yyyy;
 }
+
+const std::string& Date::getDate() const
+{
+	std::string temp = getYear() + "-" + getMonth() + "-" + getDay();
+	return temp;
+}
+
+
 
 #pragma warning(disable : 4996)
 Date* Date::CurrentDate() {

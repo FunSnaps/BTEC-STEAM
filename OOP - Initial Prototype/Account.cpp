@@ -12,3 +12,21 @@ Account::~Account()
 		users.deleteFirst();
 	}
 }
+
+std::string& Account::GetEmail() {
+	return email;
+}
+
+std::string& Account::GetPassword() {
+	return password;
+}
+
+const Date* Account::GetCreated() const
+{
+	return created;
+}
+
+const List<Player*> Account::GetUsers() const
+{
+	return users;
+}

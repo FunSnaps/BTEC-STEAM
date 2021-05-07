@@ -2,16 +2,17 @@
 
 #include "Menu.h"
 #include "Utils.h"
+#include "Date.h"
 #include <iostream>
 
-class GameInfoMenu : public Menu
+class PurchaseSuccessMenu : public Menu
 {
 public:
-    GameInfoMenu(const std::string& title, Application* app, const int& index);
+    PurchaseSuccessMenu(const std::string& title, Application* app, const int& index);
     void OutputOptions() final;
     bool HandleChoice(char choice) final;
 private:
-
-    const int& gameIndex;
+    const int& index;
     Utils utils;
+    Date* d;
 };

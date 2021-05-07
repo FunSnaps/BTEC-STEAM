@@ -10,10 +10,13 @@ class LibraryItem
 		~LibraryItem();
 
 		Game getGame() const;
-
+		bool sortVector( LibraryItem* item) ;
+		Date* GetDatePurchased() const;
+		double getHours();
+		void setHours();
 	private:
+		double hoursPlayed = 0;
 		const Game game;
-		//const std::string purchased;  // TODO: replace with custom Date class, currently YYYY-MM-DD
 		Date* purchased;
 		
 };

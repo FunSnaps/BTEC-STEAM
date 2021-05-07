@@ -29,26 +29,35 @@ bool StoreMenu::HandleChoice(char choice)
 
     if (index >= 0 && index < app->GetStore().GetGames().length() / 2 + 1)
     {
-
-        // go to game detail page
-        if(app->IsUserLoggedIn()){
-            std::string name = app->GetStore().getIndex(index).GetName();
-            GameBuyMenu(name, app, index);
-        }else{
         std::string temp = app->GetStore().getIndex(index).GetName();
-        GameInfoMenu(utils.ToUpper(temp), app, index);
-    }
-
+        if (app->IsUserLoggedIn()) {
+            GameBuyMenu(utils.ToUpper(temp), app, index);
+        }
+        else {
+            char str[50];
+#pragma warning(suppress : 4996)
+            strcpy(str, temp.c_str());
+            utils.ToUpperRec(str);                  
+            GameInfoMenu(str, app, index);
+        }
     }
 
     switch (choice) {
     case 'N':
-    {   
-        GameInfoMenu("STORE", app, 'N');
+
+    {
+        if (app->IsUserLoggedIn())
+        {
+            GameBuyMenu("STORE", app, 'N');
+        }
+        else {
+            GameInfoMenu("STORE", app, 'N');
+        }
+
     } break;
     case 'S':
     {
-        BlockingMessage("SEARCH PAGE");
+        SearchMenu("SEARCH", app);
     }
     default:
         break;

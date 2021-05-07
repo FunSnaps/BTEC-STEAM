@@ -9,7 +9,6 @@ class Store
 	public:
 		Store();
 		~Store();
-		//Game* games[9] = { }; // TODO: should be a dynamic collection
 
 		void addGame(Game* game);
 		Game getIndex(const int& index);
